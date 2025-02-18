@@ -1,0 +1,85 @@
+*{
+margin:0;
+Padding:0;
+ user-select: none;
+ scrollbar-width: none;
+}
+ 
+body{
+width: 100%;
+height: auto;
+}
+ 
+a{
+color: blue;
+text-decoration: none;
+}
+ 
+@media (max-width : 768px) {
+ 
+ 
+}
+ @font-face {
+  font-family: ip;
+  src: url(../font/FN\ Mamun\ Turio\ Unicode.ttf);
+ }
+ header{
+  width: 100%;
+  font-weight: bold;
+  height: 5rem;
+  font-size: 1.3rem;
+  flex-direction: column;
+  gap: 5px;
+  font-family: ip;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+hr{
+ width: 60%;
+ background-color: rgb(62, 169, 245);
+ border: none;
+ height: .2rem;
+}
+
+@font-face {
+ font-family: ip;
+ src: url(../font/Ios\ Kohinoor\ font.ttf);
+}
+.content{
+ padding-top: 10%;
+ width: 90%;
+ margin-left: 5%;
+ height: auto;
+ font-size: 1rem;
+ display: flex;
+ font-family: ip;
+ justify-content: center;
+ /* align-items: center; */
+ flex-direction: column;
+}
+
+.bottom{
+ width: 100%;
+ height: auto;
+ display: flex;
+ padding-top: 10%;
+ flex-direction: column;
+ gap: 10px;
+ justify-content: center;
+ align-items: center;
+}
+.pdf{
+ background-color: rgb(110, 110, 249);
+ height: 2rem;
+ padding: 10px;
+ color: white;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ filter: drop-shadow(0px 0px 10px silver);
+ margin-bottom: 20%;
+ border-radius: 5px;
+ width: 40%;
+}

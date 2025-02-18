@@ -476,7 +476,7 @@ function Practice(){
 }
 
 function que_bank(){
-  window.location.href='HTMLS/question-board.html'
+  window.location.href='Sadharon-Gyan/MCQ.html'
 }
 
 function more(){
