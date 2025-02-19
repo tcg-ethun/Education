@@ -47,7 +47,7 @@ hr{
  font-family: ip;
  src: url(../font/Ios\ Kohinoor\ font.ttf);
 }
-.content{
+#content{
  padding-top: 10%;
  width: 90%;
  margin-left: 5%;
@@ -82,4 +82,7 @@ hr{
  margin-bottom: 20%;
  border-radius: 5px;
  width: 40%;
+}
+#red{
+ color: red;
 }
