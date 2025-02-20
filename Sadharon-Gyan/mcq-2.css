@@ -85,6 +85,10 @@ hr{
  border-radius: 50px;
  border: none;
  background-color: white;
+ transition-duration: .2s;
+}
+.page:active{
+ transform: scale(.9);
 }
 .red{
  color: white;
@@ -131,6 +135,5 @@ hr{
  margin-top: 2%;
  height: 1rem;
  background-color: rgb(226, 226, 226);
-
  border-radius: 50px;
 }
