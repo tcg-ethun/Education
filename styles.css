@@ -46,65 +46,10 @@ a{
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  height: 4rem;
-}
-
-.Home{
-  width: 6%;
-  display: flex;
-  font-size: 23px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: #9ad9f2;
-  height: 4rem;
+  height: 4.5rem;
 }
 
 
-.news{
-  width: 6%;
-  display: flex;
-  font-size: 23px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
-}
-
-.ebook{
-  width: 6%;
-  display: flex;
-  font-size: 23px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
-}
-
-.practice{
-  width: 6%;
-  display: flex;
-  font-size: 23px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
-}
-.more{
-  width: 6%;
-  display: flex;
-  font-size: 23px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
-}
-
-
-
-
-
-/* Content Start */
 .Top-line{
   width: 100%;
   height: auto;
@@ -417,4 +362,23 @@ box-shadow: 0px 05px 15px rgb(222, 220, 220) ;
 font-family: ip;
 flex-direction: column;
 transition-duration: .4s;
+}
+
+.home , .practice{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@font-face {
+  font-family: 'fira';
+  src: url(font/FiraSans-Regular.ttf);
+}
+p{
+  padding-top: 5%;
+  font-size: 3.6vw;
+  margin-top: 5%;
+  color: #cbcdce;
+  font-family: 'fira';
 }
