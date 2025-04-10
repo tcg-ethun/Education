@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: 'ip';
-    src: url(../font/Ios\ Kohinoor\ font.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
 }
 
 
@@ -32,7 +32,7 @@ body{
 
 @font-face {
     font-family: opp;
-    src: url(../font/Ios\ Kohinoor\ font.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
 }
 h1{
     font-weight: bold;
@@ -67,7 +67,7 @@ h1{
 
 @font-face {
     font-family: pp;
-    src: url(../font/Ios\ Kohinoor\ font.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
 }
 .question {
     font-size: 16px;

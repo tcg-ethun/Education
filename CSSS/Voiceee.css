@@ -236,10 +236,7 @@ h1{
     position:absolute;
     margin-top: 60%;
 }
-@font-face {
-    font-family: iphone;
-    src: url(Ios\ Kohinoor\ font.ttf);
-}
+
 #bangla-btn{
     overflow: hidden;
     position: absolute;

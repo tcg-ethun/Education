@@ -20,7 +20,7 @@ body{
 
 @font-face {
     font-family: 'iphone';
-    src: url(../font/Ios\ Kohinoor\ font.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
 }
 #aa{
     text-decoration: none;
@@ -117,7 +117,7 @@ font-size: min(25px);
 
 @font-face {
     font-family: 'iphone';
-    src: url(../font/Ios\ Kohinoor\ font.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
 }
 
 .riddle-container {

@@ -18,7 +18,7 @@ a{
 
  @font-face {
     font-family: 'iphone';
-    src: url(font/Ios\ Kohinoor\ font.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
  }
  
  body{
@@ -88,7 +88,7 @@ flex-wrap: wrap;
 
 @font-face {
     font-family: ip;
-    src: url(../font/Ios\ Kohinoor\ font.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
 }
 
 

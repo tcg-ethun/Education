@@ -20,7 +20,7 @@ a{
 
  @font-face {
     font-family: 'iphone';
-    src: url(font/Ios\ Kohinoor\ font.ttf);
+    src: url(font/HindSiliguri-Regular.ttf);
  }
  
  body{
@@ -127,11 +127,6 @@ h1{
 }
 
 @font-face {
-    font-family: 'oswald';
-    src: url(font/Oswald-Regular.ttf);
-}
-
-@font-face {
     font-family: 'r-c';
     src: url(font/RobotoCondensed-Regular.ttf);
 }
@@ -183,7 +178,7 @@ height: 3rem;
 
 @font-face {
     font-family:'fira';
-    src: url(font/Ios\ Kohinoor\ font.ttf);
+    src: url(font/HindSiliguri-Regular.ttf);
 }
 
 .balls{
@@ -246,7 +241,7 @@ user-select: none;
 
 @font-face {
   font-family: 'ip';
-  src: url(font/Ios\ Kohinoor\ font.ttf);
+  src: url(font/HindSiliguri-Regular.ttf);
 }
 
 
@@ -279,7 +274,7 @@ user-select: none;
 
 @font-face {
   font-family: pop;
-  src: url(font/FN\ Mamun\ Turio\ Unicode.ttf);
+  src: url(font/HindSiliguri-Regular.ttf);
 }
 .question {
   font-size: 16px;
@@ -408,7 +403,7 @@ body{
 
 
 
-#boxx{
+#lop{
 display: flex;
 justify-content: center;
 align-items: center;
@@ -421,8 +416,5 @@ background-color: rgb(255, 255, 255);
 box-shadow: 0px 05px 15px rgb(222, 220, 220) ;
 font-family: ip;
 flex-direction: column;
-transition-duration: .3s;
-}
-#boxx:active{
-  transform: scale(.9);
+transition-duration: .4s;
 }
