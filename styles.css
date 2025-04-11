@@ -212,6 +212,8 @@ user-select: none;
   margin-top: -10%;
   padding: 10px;
   font-size: 5vw;
+  width: 100%;
+  text-align: center;
   color: rgb(15, 9, 126);
   padding-bottom: 5%;
   font-family: pop;
@@ -461,3 +463,5 @@ border-radius: 5px;
   font-size: 4.2vw;
   text-align: center;
 }
+
+
