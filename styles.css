@@ -382,3 +382,72 @@ p{
   color: #cbcdce;
   font-family: 'fira';
 }
+
+footer{
+height: auto;
+padding-bottom: 10%;
+padding-top: 10%;
+  width: 100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius:20px;
+  flex-direction: column;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h4{
+  color: white;
+  width: 70%;
+  font-size: 5vw;
+  font-family: 'fira';
+
+}
+
+p{
+  width: 80%;
+  margin-top: -2%;
+}
+
+.contact{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 15px;
+  height: auto;
+  font-family: 'fira';
+  margin-top: 15%;
+  padding: 10px;
+  /* background-color: blue; */
+}
+
+.contact-box{
+  width: 70%;
+  text-align: center;
+  color: white;
+  font-size: 3.6vw;
+  background-color: rgba(135, 132, 132, 0.393);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+.contact-box0{
+  color: white;
+background-color: black;
+}
+
+hr{
+  margin-top: 5%;
+  width: 85%;
+  opacity: .4;
+}
+.div{
+  margin-top: 5%;
+  font-family: 'fira';
+  font-size: 3.4vw;
+  color: silver;
+}
