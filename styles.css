@@ -451,3 +451,6 @@ hr{
   font-size: 3.4vw;
   color: silver;
 }
+iframe{
+border-radius: 5px;
+}
