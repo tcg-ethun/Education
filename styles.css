@@ -454,3 +454,10 @@ hr{
 iframe{
 border-radius: 5px;
 }
+
+#location{
+  width: 100%;
+  margin-top: 5%;
+  font-size: 4.2vw;
+  text-align: center;
+}
