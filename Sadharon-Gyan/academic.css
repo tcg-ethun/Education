@@ -35,6 +35,8 @@ margin-top: 25%;
   flex-direction: column;
   z-index: 3;
   margin-left: 5%;
+  border: 2px dotted ;
+  border-image: linear-gradient(45deg, red , blue);
   margin-right: 5%;
   height: 200px;
   background: linear-gradient(140deg, rgb(226, 226, 251),rgb(255, 255, 255));
@@ -46,7 +48,8 @@ margin-top: 25%;
   margin-top: 5%;
   width: 300px;
   z-index: 3;
-
+  border: 2px dotted ;
+  border-image: linear-gradient(45deg, red , blue);
   font-family: 'fira';
   /* margin-right: 5%; */
   flex-direction: column;
@@ -58,6 +61,8 @@ margin-top: 25%;
   border-radius: 10px;
   display: flex;
   margin-left: 5%;
+  border: 2px dotted ;
+  border-image: linear-gradient(45deg, red , blue);
   margin-top: 5%;
   z-index: 3;
 
