@@ -45,6 +45,159 @@ document.addEventListener('DOMContentLoaded', function() {
           { q: 'Which one is the least populated division of Bangladesh?', options: [ 'Rangpur', 'Barisal', 'Mymensingh', 'Sylhet' ], answer: 1 },
           { q: 'Which of the following is the largest district In terms of volume?', options: [ 'Chattagram', 'Rangamati', 'Bandarban', 'Dhaka' ], answer: 1 }
     
+,            {
+              q: 'Most southern part district of Bangladesh is-',
+              options: ['Panchagarh', 'Bandarban', 'Sylhet', 'Cox\'s Bazar'],
+              answer: 3
+            },
+            {
+              q: 'Which of the following district has two borderline countries?',
+              options: ['Rangamati', 'Sylhet', 'Mymensingh', 'Lalmonirhat'],
+              answer: 0
+            },
+            {
+              q: 'In the history of Dhaka, when was it declared capital for the first time?',
+              options: ['1601', '1610', '1621', '1630'],
+              answer: 1
+            },
+            {
+              q: 'আয়তনে বাংলাদেশের সর্ববৃহৎ সিটি কর্পোরেশন কোনটি?',
+              options: ['রাজশাহী', 'ঢাকা', 'চট্টগ্রাম', 'গাজীপুর'],
+              answer: 3
+            },
+            {
+              q: 'ঢাকাকে প্রথম কখন বাংলার রাজধানী করা হয়?',
+              options: ['১৫১০ সালে', '১৫৯০ সালে', '১৬০০ সালে', '১৬১০ সালে'],
+              answer: 3
+            },
+            {
+              q: 'GMT বা গ্রিনিচমান সময়ের সাথে বাংলাদেশের সময়ের পার্থক্য কত ঘণ্টা?',
+              options: ['৬ ঘন্টা', '৮ ঘন্টা', '১০ ঘন্টা', '৫ ঘন্টা'],
+              answer: 0
+            },
+            {
+              q: 'বাংলাদেশের সর্ব-উত্তরে অবস্থিত জেলার নাম?',
+              options: ['কুড়িগ্রাম', 'পীরগঞ্জ', 'পঞ্চগড়', 'সিলেট'],
+              answer: 2
+            },
+            {
+              q: 'বাংলাদেশের সর্বশেষ বিভাগের নাম কী?',
+              options: ['ময়মনসিংহ', 'বরিশাল', 'খুলনা', 'রংপুর'],
+              answer: 0
+            },
+            {
+              q: 'স্বাধীনতালগ্নে বাংলাদেশের জেলা ছিল কতটি?',
+              options: ['১৯', '২১', '৩২', '48'],
+              answer: 0
+            },
+            {
+              q: 'আয়তনে বাংলাদেশের বড় জেলা কোনটি?',
+              options: ['ঢাকা', 'নারায়ণগঞ্জ', 'পার্বত্য রাঙ্গামাটি', 'পার্বত্য বান্দরবান'],
+              answer: 2
+            },
+            {
+              q: 'ঢাকা কত সালে সুবা-বাংলার রাজধানী হয়?',
+              options: ['১৬১০', '১৬১১', '১৯১২', '১৬১৫'],
+              answer: 0
+            },
+            {
+              q: 'In term of land area, which one is the largest district of Bangladesh?',
+              options: ['Rangamati', 'Chittagong', 'Dhaka', 'Feni'],
+              answer: 0
+            },
+            {
+              q: 'বাংলাদেশের বৃহত্তম উপজেলা কোনটি?',
+              options: ['শ্যামনগর', 'ঘাটাইল', 'সাভার', 'বরকল'],
+              answer: 0
+            },
+              {
+              q: 'বংলাদেশের সবচেয়ে কম বসতিপূর্ণ জেলা কোনটি?',
+              options: ['বান্দরবান', 'রাঙ্গামাটি', 'খাগড়াছড়ি', 'মেহেরপুর'],
+              answer: 0
+            },
+             {
+              q: 'তথ্য মন্ত্রণালয়ের বর্তমান নাম কী?',
+              options: ['তথ্য ও যেতার মন্ত্রণালয়', 'তথ্য ও যোগাযোগ মন্ত্রণালয়', 'তথ্য ও সংস্কৃতি মন্ত্রণালয়', 'তথ্য ও সাংস্কৃতি মন্ত্রণালয়'],
+              answer: 2
+            },
+            {
+              q: 'প্রাচীন চন্দ্রদ্বীপের বর্তমান নাম কী?',
+              options: ['মালদ্বীপ', 'সন্দ্বীপ', 'হাতিয়া', 'বরিশাল'],
+              answer: 3
+            },
+            {
+              q: 'মুফল আমলে ঢাকার নাম কী ছিল?',
+              options: ['ইসলামাবাদ', 'জাহাঙ্গীরনগর', 'বিক্রমপুর', 'সোনারগাঁও'],
+              answer: 3
+            },
+            {
+                q: 'বাংলাদেশে বর্তমানে বিভাগের সংখ্যা কয়টি?',
+                options: ['৬টি', '৭টি', '৮টি', '৯টি'],
+                answer: 2
+              },
+              {
+                q: 'বাংলাবান্ধা কোন জেলায় অবস্থিত?',
+                options: ['ঠাকুরগাঁও', 'শেরপুর', 'পঞ্চগড়', 'জয়পুরহাট'],
+                answer: 2
+              },
+              {
+                q: 'ঢাকা পৌরসভা\'র প্রথম নির্বাচন কবে অনুষ্ঠিত হয়?',
+                options: ['১৬০৮ সালে', '১৮৬৪ সালে', '১৮৮৪ সালে', ' ১৯৯০ সালে'],
+                answer: 2
+              },
+
+              {
+                q: 'Of which place\'s former name "Gondowana land"?',
+                options: ['Dinajpur', 'Bagerhat', 'Cox\'s-Bazar', 'Noakhali'],
+                answer: 0
+              },
+              {
+                q: 'What is the previous name of \'Barishal\'?',
+                options: ['Chandradeep', 'Sudharam', 'Suvarna Gram', 'Bikrampur'],
+                answer: 0
+              },
+              {
+                q: 'What was the previous name of Comilla?',
+                options: ['Tripura', 'Nasirabad', 'Sudharam', 'Subarnagram'],
+                answer: 0
+              },
+              {
+                q: 'বাংলাদেশের রুটির ঝুড়ি বলা হয় কোন জেলাকে?',
+                options: ['বরিশাল', 'রাজশাহী', 'যশোর', 'দিনাজপুর'],
+                answer: 3
+              },
+              {
+                q: 'বাংলাদেশের সঙ্গে আন্তর্জাতিক সীমানা রয়েছে কয়টি দেশের?',
+                options: ['১টি', '২টি', '৩টি', '৪টি'],
+                answer: 1
+              },
+              
+        {
+            q: 'বাংলাদেশের সঙ্গে আন্তর্জাতিক সীমানা রয়েছে কয়টি দেশের?',
+            options: ['১টি', '২টি', '৩টি', '৪টি'],
+            answer: 1
+          },
+          {
+            q: 'বাংলাদেশের সঙ্গে আন্তর্জাতিক সীমানা রয়েছে কয়টি দেশের?',
+            options: ['১টি', '২টি', '৩টি', '৪টি'],
+            answer: 1
+          },
+          {
+            q: 'বাংলাদেশের সাথে কোন দুটি দেশের স্থলসীমান্ত রয়েছে?',
+            options: ['ভারত, পাকিস্তান', 'মালদ্বীপ, ভুটান', 'নেপাল, ভারত', 'ভারত, মায়ানমার'],
+            answer: 3
+          },
+          {
+            q: 'বাংলাদেশের ভৌগোলিক সঠিক অবস্থান কোনটি?',
+            options: ['২৩.৬৮৫০ ডিগ্রি উত্তর, ৯০.৩৫৬৩ ডিগ্রি পশ্চিম', '৩০.৩৭৫৩ ডিগ্রি উত্তর, ৬৯.৩৪৫১ ডিগ্রি পশ্চিম', '২০.৫৯৩৭ ডিগ্রি উত্তর, ৭৮.৯৬২৯ ডিগ্রি পশ্চিম', 'কোনটিই নয়'],
+            answer: 3
+          },
+          {
+            q: ' ১৯৪৭ সালে উপমহাদেশের স্বাধীনতার সময়কার সীমানা কমিশন কী নামে পরিচিত ছিল?',
+            options: ['মাউন্টব্যাটেন কমিশন', 'সাইমন কমিশন', 'র‍্যাডক্লিফ কমিশন', 'লরেন্স কমিশন'],
+            answer: 2
+          },
+          
     ];
 
     let questions = [];
