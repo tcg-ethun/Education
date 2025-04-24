@@ -476,7 +476,7 @@ function Practice(){
 }
 
 function que_bank(){
-  window.location.href='Sadharon-Gyan/academic.html'
+  window.location.href='HTMLS/Practice.html'
 }
 
 function more(){
