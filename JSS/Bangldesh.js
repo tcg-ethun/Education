@@ -265,8 +265,73 @@ document.addEventListener('DOMContentLoaded', function() {
               options: ['রাঙামাটি', 'খাগড়াছড়ি', 'বান্দরবান', 'সন্দ্বীপ'],
               answer: 1                  /*57*/ 
             },
+            {
+                q: 'বাংলাদেশের সমুদ্রসীমা নির্ধারণের নাম কী?',
+                options: ['UNCLOS', 'ITLOS', 'ICJ', 'CLCS'],
+                answer: 1
+              },
+              {
+                q: 'বাংলাদেশের সমুদ্রসীমা নির্ধারণে আন্তর্জাতিক আদালতের রায় ঘোষণা করা হয় কত সালে?',
+                options: ['২০০৮', '২০১২', '২০১৪', '২০১৬'],
+                answer: 1
+              },
+              {
+                q: 'বাংলাদেশের সমুদ্রসীমা নির্ধারণের নাম কী?',
+                options: ['UNCLOS', 'ITLOS', 'ICJ', 'CLCS'],
+                answer: 1
+              },
+              {
+                q: 'বাংলাদেশের সমুদ্রসীমা নির্ধারণে আন্তর্জাতিক আদালতের রায় ঘোষণা করা হয় কত সালে?',
+                options: ['২০০৮', '২০১২', '২০১৪', '২০১৬'],
+                answer: 1
+              },
+              {
+                q: 'বাংলাদেশে সৃষ্ট ২০০৭ সালের ঘূর্ণিঝড়ের নাম- ',
+                options: ['অলা', 'সিডর', 'ফণী', 'কোম্পা'],
+                answer: 1
+              },
+              {
+                q: 'বাংলাদেশে ঘটে যাওয়া সবচেয়ে বড় ভূমিকম্প- ',
+                options: ['মহাপ্লাবন', 'কোম্পানিগঞ্জ ভূমিকম্প', 'আসমা ভূমিকম্প', 'মোঘল ভূমিকম্প'],
+                answer: 2
+              },
+              {
+                q: 'ভারতের সাথে বাংলাদেশের সীমান্ত দৈর্ঘ্য কত কিলি.মি.? ',
+                options: ['৪,০৯৬ কিমি.', '২,৫১ কিমি.', '২,৭১ কিমি.', '৪,১৫৬ কিমি.'],
+                answer: 3
+              },
+              {
+                q: 'মিয়ানমারের সাথে বাংলাদেশের স্থলসীমান্ত কত কিলি.মি.?',
+                options: ['২৭১ কিমি.', '২১০ কিমি.', '৩২১ কিমি.', '২৮১ কিমি.'],
+                answer: 0
+              },
+              {
+                q: 'বাংলাদেশের মোট আয়তন কত বর্গ কিলি.মি.? ',
+                options: ['১,৪৭,৫৭০', '১,৪৮,০০০', '১,৪৭,৫০০', '১,৪৮,৫৭০'],
+                answer: 0
+              },        /*66*/ 
 
-            
+              {
+                q: 'Which of the following states of India does not have a border with Bangladesh?',
+                options: ['Mizoram', 'Tripura', 'Assam', 'Monipur'],
+                answer: 3
+              },
+              {
+                q: 'Which Indian state shares a border with Bangladesh?',
+                options: ['West Bengal', 'Assam', 'Meghalaya', 'A, B & C'],
+                answer: 3
+              },
+
+              {
+                q: 'How many districts of Bangladesh have direct border with India?',
+                options: ['30', '31', '32', '35'],
+                answer: 0
+              },
+              {
+                q: 'The number of common rivers between Bangladesh and India is',
+                options: ['50', '52', '53', '54'],
+                answer: 3
+              },                                             /*70*/ 
 
     ];
 
