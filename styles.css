@@ -35,10 +35,8 @@ a{
   font-family: 'engs';
   src: url(font/FN\ Mamun\ Turio\ Unicode.ttf);
 }
-#cap{
-  /* transform: rotate(-30deg); */
-  margin-left: 30%;
-}
+
+
 .navbar{
   background-color:rgb(1, 4, 27);
   width: 100%;
@@ -53,6 +51,7 @@ a{
   color:rgb(255, 255, 255);
   column-gap: 10px;
   flex-direction: row;
+  justify-content: center;
   /* justify-content: space-evenly; */
   align-items: center;
   height: 4rem;
