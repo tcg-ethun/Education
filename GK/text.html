@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <title>MCQ Test</title>
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-papbV7U6qP6kXoPpKj2vQ9v5xZ7h3h+6nZzq9e0pX0G+Q7g8v0p7p9v1k3v7z8Z9"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'bng';
+      background-color: #f0f4f5;
+    }
+    @font-face {
+      font-family: 'bng';
+      src: url(../font/HindSiliguri-Regular.ttf);
+    }
+    @font-face {
+      font-family: 'eng';
+      src: url(../font/FiraSans-Regular.ttf);
+    }
+    .container {
+      width: 90%;
+      max-width: 650px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .top-buttons {
+      display: flex;
+      gap: 15px;
+    }
+    .back-button,
+    .reset-button {
+      background-color: #dfe6e9;
+      color: #57606f;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background-color 0.3s ease;
+    }
+    .back-button:hover,
+    .reset-button:hover {
+      background-color: #c7ecee;
+    }
+    h1 {
+      flex: 1;
+      font-family: 'fira sans';
+      font-size: 26px;
+      color: #2c3a47;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      user-select: none;
+      margin: 0 10px;
+      position: relative;
+    }
+    /* Eye icon button */
+    #toggleAnswersBtn {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #57606f;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+    #toggleAnswersBtn:hover {
+      color: #007acc;
+    }
+    .question-container {
+      margin-bottom: 30px;
+      border: 1px solid #d5d8de;
+      border-radius: 12px;
+      padding: 20px;
+      background-color: #fff;
+    }
+    .question {
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #2f3542;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+    }
+    .option {
+      padding: 15px;
+      margin: 7px 0;
+      border: 1px solid #bdc3c7;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #f9f9f9;
+      color: #353b48;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .option:hover {
+      background-color: #ecf0f1;
+    }
+    .selected {
+      color: #fff;
+      background-color: #487eb0;
+      border-color: #487eb0;
+    }
+    .correct {
+      background-color: #a7d1ab;
+      color: #276c30;
+      border-color: #a7d1ab;
+    }
+    .incorrect {
+      background-color: #f2b6b3;
+      color: #7f2929;
+      border-color: #f2b6b3;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 35px;
+    }
+    button {
+      background-color: #6ab04c;
+      color: #fff;
+      padding: 14px 26px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-size: 17px;
+      user-select: none;
+    }
+    button:hover {
+      background-color: #558b2f;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 18px;
+      color: #2c3a47;
+      text-align: center;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="top-buttons">
+        <button class="back-button" onclick="goBack()">Back</button>
+        <button class="reset-button" onclick="resetQuiz()">Reset</button>
+      </div>
+      <h1>
+        MCQ TEST
+        <button id="toggleAnswersBtn" aria-label="Show answers">
+          <i class="fa-regular fa-eye"></i>
+        </button>
+      </h1>
+      <div style="width: 120px;"></div> <!-- spacer to balance flex -->
+    </div>
+    <div id="quiz"></div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "নিচের কোনটি ব্লু অর্থনীতির সাথে সম্পর্কিত ?",
+        options: ["বনজ সম্পদ", "খনিজ সম্পদ", "সমুদ্র সম্পদ", "মৎস সম্পদ"],
+        answer: 2,
+      },
+      {
+        question: "'কমলবন' শব্দটিকে কবি 'ফেব্রুয়ারি ১৯৬৯' কবিতায় কী হিসেবে ব্যবহার করেছেন?",
+        options: ["ভাবার্থে", "মূল অর্থে", "প্রতীকী অর্থে", "ব্যঞ্জনা অর্থে"],
+        answer: 2,
+      },
+      {
+        question: "'খাজাঞ্চি' বলতে কোন ব্যক্তিকে বোঝায়?",
+        options: ["সেনাপতিকে", "নবাবকে", " ", " "],
+        answer: 0,
+      },
+      {
+        question: "ঐকতান সংগীতের মূর্ছনা",
+        options: ["1903 খ্রি", "1913 খ্রি.", "1923 খ্রি.", "1933 খ্রি."],
+        answer: 0,
+      },
+      // Add more questions as needed
+    ];
+
+    const banglaNumbers = Array.from(
+      { length: questions.length },
+      (_, i) => (i + 1).toString()
+    );
+    const optionLabels = ["ক", "খ", "গ", "ঘ"];
+    let selectedAnswers =
+      JSON.parse(localStorage.getItem("selectedAnswers")) ||
+      new Array(questions.length).fill(null);
+
+    const quizContainer = document.getElementById("quiz");
+    const resultContainer = document.getElementById("result");
+    const toggleAnswersBtn = document.getElementById("toggleAnswersBtn");
+    let answersShown = false;
+
+    function buildQuiz(showAnswers = false) {
+      quizContainer.innerHTML = "";
+      questions.forEach((question, questionIndex) => {
+        const questionContainer = document.createElement("div");
+        questionContainer.classList.add("question-container");
+
+        const questionDiv = document.createElement("div");
+        questionDiv.classList.add("question");
+        questionDiv.innerHTML = `<strong>${banglaNumbers[questionIndex]}. ${question.question}</strong>`;
+        questionContainer.appendChild(questionDiv);
+
+        const optionsDiv = document.createElement("div");
+        optionsDiv.classList.add("options");
+
+        question.options.forEach((option, optionIndex) => {
+          const optionDiv = document.createElement("div");
+          optionDiv.classList.add("option");
+
+          // Mark selected
+          if (selectedAnswers[questionIndex] === question.options[optionIndex]) {
+            optionDiv.classList.add("selected");
+          }
+
+          // Show correct/incorrect if answersShown is true
+          if (showAnswers) {
+            if (optionIndex === question.answer) {
+              optionDiv.classList.add("correct");
+            }
+            if (
+              selectedAnswers[questionIndex] === question.options[optionIndex] &&
+              optionIndex !== question.answer
+            ) {
+              optionDiv.classList.add("incorrect");
+            }
+          }
+
+          optionDiv.innerHTML = `<span>${optionLabels[optionIndex]}.</span>
+            <label>${option}</label>`;
+
+          if (!showAnswers) {
+            optionDiv.addEventListener("click", () =>
+              selectAnswer(questionIndex, optionIndex)
+            );
+          } else {
+            // disable click when showing answers
+            optionDiv.style.cursor = "default";
+          }
+
+          optionsDiv.appendChild(optionDiv);
+        });
+
+        questionContainer.appendChild(optionsDiv);
+        quizContainer.appendChild(questionContainer);
+      });
+    }
+
+    function selectAnswer(questionIndex, selectedOptionIndex) {
+      selectedAnswers[questionIndex] = questions[questionIndex].options[
+        selectedOptionIndex
+      ];
+      localStorage.setItem("selectedAnswers", JSON.stringify(selectedAnswers));
+      buildQuiz(answersShown);
+    }
+
+    function showResult() {
+      let correctAnswers = 0;
+      questions.forEach((question, questionIndex) => {
+        if (
+          selectedAnswers[questionIndex] === question.options[question.answer]
+        ) {
+          correctAnswers++;
+        }
+      });
+      resultContainer.textContent = `You got ${correctAnswers} out of ${questions.length}`;
+    }
+
+    function resetQuiz() {
+      selectedAnswers = new Array(questions.length).fill(null);
+      localStorage.removeItem("selectedAnswers");
+      buildQuiz(false);
+      resultContainer.textContent = "";
+      if (answersShown) toggleAnswers();
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    function toggleAnswers() {
+      answersShown = !answersShown;
+      buildQuiz(answersShown);
+      if (answersShown) {
+        showResult();
+        toggleAnswersBtn.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+        toggleAnswersBtn.setAttribute("aria-label", "Hide answers");
+      } else {
+        resultContainer.textContent = "";
+        toggleAnswersBtn.innerHTML = '<i class="fa-regular fa-eye"></i>';
+        toggleAnswersBtn.setAttribute("aria-label", "Show answers");
+      }
+    }
+
+    toggleAnswersBtn.addEventListener("click", toggleAnswers);
+
+    // Initial build
+    buildQuiz(false);
+  </script>
+</body>
+</html>

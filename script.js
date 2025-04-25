@@ -495,3 +495,115 @@ document.getElementById("downloadBtn").onclick = () => {
   link.click();
 };
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(registration => {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch(error => {
+      console.error('Service Worker registration failed:', error);
+    });
+}
+
+window.addEventListener('offline', () => {
+  console.log('Offline now!');
+  // Display an offline message in the UI
+});
+
+window.addEventListener('online', () => {
+  console.log('Back online!');
+  // Hide the offline message
+});
+
+// idb.js (Include the idb library code directly in this file or fetch from a CDN)
+// Example:  https://cdn.jsdelivr.net/npm/idb@7/+esm
+(function() {
+  // idb library code here (replace with actual idb code)
+  console.log('idb library placeholder');
+
+  // Example usage (replace placeholders with your actual IndexedDB logic)
+  async function saveContent(id, data) {
+    console.log('Saving content', id, data);
+    // Actual IndexedDB save logic here using idb library
+  }
+
+  async function getContent(id) {
+    console.log('Getting content', id);
+    // Actual IndexedDB get logic here using idb library
+  }
+
+  window.saveContent = saveContent; // Make available globally if needed
+  window.getContent = getContent; // Make available globally if needed
+})();
+
+// service-worker.js (Combined into this file for simplicity)
+const cacheName = 'my-app-cache-v1';
+const filesToCache = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/script.js',
+  '/GK/Gk-CATEGORY.html',
+  '/GK/category.css',
+  '/GK/Academic.html',
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(cacheName)
+      .then(cache => {
+        console.log('Caching app shell');
+        return cache.addAll(filesToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  if (event.request.url.startsWith('https://api.example.com')) { // API URL
+    event.respondWith(
+      caches.open('api-cache').then(cache => {
+        return fetch(event.request).then(response => {
+          cache.put(event.request.url, response.clone());
+          return response;
+        });
+      }).catch(() => {
+        return caches.match(event.request); // Serve from cache if API is down
+      })
+    );
+  } else {
+    event.respondWith(
+      caches.match(event.request)
+        .then(response => {
+          return response || fetch(event.request);
+        })
+    );
+  }
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.filter(name => name !== cacheName)
+          .map(name => caches.delete(name))
+      );
+    })
+  );
+});
