@@ -115,7 +115,7 @@ h4{
 .data{
     padding: 2px;
     margin-left: 10px;
-    width: 90px;
+    width: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,7 +123,7 @@ h4{
     border-radius: 50px;
     background-color: rgb(194, 248, 194);
     position: relative;
-    font-size: 11px;
+    font-size: 10px;
 }
 
 button{
