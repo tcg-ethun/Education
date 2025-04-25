@@ -11,11 +11,11 @@ a {
 }
 @font-face {
     font-family: 'eng';
-    src: url(/font/FiraSans-Regular.ttf);
+    src: url(../font/FiraSans-Regular.ttf);
 }
 @font-face {
     font-family: 'bng';
-    src: url(/font/HindSiliguri-Regular.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
 }
 html {
   scroll-behavior: smooth;
