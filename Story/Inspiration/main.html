@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Stories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../Educational/style.css">
+
+</head>
+<body>
+    <button id="backed" onclick="window.location.back()"> <i class="fa-solid fa-arrow-left"></i> </button>
+<h2>Inspirational Stories </h2>
+<div class="main-container" id="mainContainer">
+    <div class="sub-content"><h4>  নীলার সাহস &nbsp; <div class="data-inspire">Inspire</div> </h4><div class="sub"> 
+        একটি ছোট্ট গ্রাম ছিল, যেখানে নীলা নামের একটি মেয়ে বাস করত। নীলা ছিল খুবই কৌতূহলী এবং...... <button onclick="window.location.href='./no1.html'">See full Story</button></div> </div>
+        
+
+
+
+</div>
+
+<script>
+    function shuffleChildren(container) {
+        var children = container.children;
+        var frag = document.createDocumentFragment();
+        while (children.length) {
+            frag.appendChild(children[Math.floor(Math.random() * children.length)]);
+        }
+        container.appendChild(frag);
+    }
+
+    var mainContainer = document.getElementById('mainContainer');
+    shuffleChildren(mainContainer);
+</script>
+
+</body>
+</html>

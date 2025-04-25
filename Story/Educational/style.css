@@ -21,7 +21,19 @@ html {
   scroll-behavior: smooth;
 }
 
-
+.data-inspire{
+    padding: 2px;
+    margin-left: 10px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2%;
+    border-radius: 50px;
+    background-color: rgb(208, 234, 254);
+    position: relative;
+    font-size: 10px;
+}
 p{
     width: 80%;
     margin-left: 10%;
