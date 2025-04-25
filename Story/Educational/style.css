@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+@font-face {
+    font-family: 'eng';
+    src: url(/font/FiraSans-Regular.ttf);
+}
+@font-face {
+    font-family: 'bng';
+    src: url(/font/HindSiliguri-Regular.ttf);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+p{
+    width: 80%;
+    margin-left: 10%;
+    font-family: 'bng';
+}
+h2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'eng';
+    align-items: center;
+    margin-top: 5%;
+}
+body{
+    background-color: #f6f5f5;
+    overflow-x: hidden;
+}
+#main{
+    margin-bottom: 20%;
+    width: 60%;
+    margin-left: 20%;
+    background-color:rgb(213, 213, 250);
+}
+ul{
+    padding-bottom: 20%;
+    width: 80%;
+    margin-right: 10px;
+    flex-wrap: wrap;
+    font-family: 'bng';
+    font-size: 15px;
+    margin-left: 20%;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 50px auto;
+    z-index: 1000;
+    row-gap: 25px;
+    padding: 10px;
+}
+.sub-content {
+    font-family: 'bng';
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgb(224, 224, 224);
+    z-index: 1000;
+    background-color: white;
+    height: 12rem;
+    border: 1px dotted #ccc;
+    border-radius: 10px;
+    /* margin-bottom: 5px; */
+}
+#backed{
+    width: 40px;
+    font-size: 18px;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: -2%;
+}
+.sub{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+    font-size: 14px;
+    color: rgb(91, 91, 91);
+}
+h3{
+    margin-top: 20px;
+    width: 100%;
+    font-family: 'bng';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+}
+h4{
+    display: flex;
+    flex-direction: row;
+}
+.sikha{
+    margin-left: 10%;
+    width: 100%;
+    font-family: 'bng';
+    font-weight: bold;
+    display: flex;
+    justify-content: left;
+}
+.data{
+    padding: 2px;
+    margin-left: 10px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2%;
+    border-radius: 50px;
+    background-color: rgb(194, 248, 194);
+    position: relative;
+    font-size: 11px;
+}
+
+button{
+    padding: 4px;
+    border: none;
+    height: 40px;
+    z-index: 1000;
+    border-radius: 50px;
+    margin-top: 5%;
+    width: 100%;
+    transition-duration: .3s;
+}
+
+button:active{
+    transform:scale(.9);
+}

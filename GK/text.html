@@ -1,338 +1,143 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, user-scalable=no" />
-  <title>MCQ Test</title>
-  <!-- Font Awesome CDN -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-papbV7U6qP6kXoPpKj2vQ9v5xZ7h3h+6nZzq9e0pX0G+Q7g8v0p7p9v1k3v7z8Z9"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <title>Education - News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+      font-family: sans-serif;
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      font-family: 'bng';
-      background-color: #f0f4f5;
-    }
-    @font-face {
-      font-family: 'bng';
-      src: url(../font/HindSiliguri-Regular.ttf);
-    }
-    @font-face {
-      font-family: 'eng';
-      src: url(../font/FiraSans-Regular.ttf);
-    }
-    .container {
-      width: 90%;
-      max-width: 650px;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      position: relative;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      position: relative;
-    }
-    .top-buttons {
-      display: flex;
-      gap: 15px;
-    }
-    .back-button,
-    .reset-button {
-      background-color: #dfe6e9;
-      color: #57606f;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 15px;
-      transition: background-color 0.3s ease;
-    }
-    .back-button:hover,
-    .reset-button:hover {
-      background-color: #c7ecee;
-    }
-    h1 {
-      flex: 1;
-      font-family: 'fira sans';
-      font-size: 26px;
-      color: #2c3a47;
-      text-align: center;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      user-select: none;
-      margin: 0 10px;
-      position: relative;
-    }
-    /* Eye icon button */
-    #toggleAnswersBtn {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 24px;
-      color: #57606f;
-      transition: color 0.3s ease;
-      user-select: none;
-    }
-    #toggleAnswersBtn:hover {
-      color: #007acc;
-    }
-    .question-container {
-      margin-bottom: 30px;
-      border: 1px solid #d5d8de;
-      border-radius: 12px;
-      padding: 20px;
-      background-color: #fff;
-    }
-    .question {
-      margin-bottom: 15px;
-      font-weight: 600;
-      color: #2f3542;
-    }
-    .options {
+      background-color: #f0f2f5;
       display: flex;
       flex-direction: column;
+      align-items: center;
     }
-    .option {
-      padding: 15px;
-      margin: 7px 0;
-      border: 1px solid #bdc3c7;
-      border-radius: 10px;
-      cursor: pointer;
-      background-color: #f9f9f9;
-      color: #353b48;
-      transition: all 0.3s ease;
-      user-select: none;
-    }
-    .option:hover {
-      background-color: #ecf0f1;
-    }
-    .selected {
-      color: #fff;
-      background-color: #487eb0;
-      border-color: #487eb0;
-    }
-    .correct {
-      background-color: #a7d1ab;
-      color: #276c30;
-      border-color: #a7d1ab;
-    }
-    .incorrect {
-      background-color: #f2b6b3;
-      color: #7f2929;
-      border-color: #f2b6b3;
-    }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 35px;
-    }
-    button {
-      background-color: #6ab04c;
-      color: #fff;
-      padding: 14px 26px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      font-size: 17px;
-      user-select: none;
-    }
-    button:hover {
-      background-color: #558b2f;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: 600;
-      font-size: 18px;
-      color: #2c3a47;
+
+    .header {
+      background-color: #1a237e;
+      color: white;
       text-align: center;
-      user-select: none;
+      padding: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px; /* Larger width for news content */
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #news-container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch; /* Stretch news items to fill width */
+    }
+
+    .news-item {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-item h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+    }
+
+    .news-item p {
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
+
+  <div class="header">
+    <h1>Education News</h1>
+  </div>
+
   <div class="container">
-    <div class="header">
-      <div class="top-buttons">
-        <button class="back-button" onclick="goBack()">Back</button>
-        <button class="reset-button" onclick="resetQuiz()">Reset</button>
-      </div>
-      <h1>
-        MCQ TEST
-        <button id="toggleAnswersBtn" aria-label="Show answers">
-          <i class="fa-regular fa-eye"></i>
-        </button>
-      </h1>
-      <div style="width: 120px;"></div> <!-- spacer to balance flex -->
+    <div id="news-container">
+      <!-- News items will be inserted here -->
     </div>
-    <div id="quiz"></div>
-    <div id="result"></div>
   </div>
 
   <script>
-    const questions = [
-      {
-        question: "নিচের কোনটি ব্লু অর্থনীতির সাথে সম্পর্কিত ?",
-        options: ["বনজ সম্পদ", "খনিজ সম্পদ", "সমুদ্র সম্পদ", "মৎস সম্পদ"],
-        answer: 2,
-      },
-      {
-        question: "'কমলবন' শব্দটিকে কবি 'ফেব্রুয়ারি ১৯৬৯' কবিতায় কী হিসেবে ব্যবহার করেছেন?",
-        options: ["ভাবার্থে", "মূল অর্থে", "প্রতীকী অর্থে", "ব্যঞ্জনা অর্থে"],
-        answer: 2,
-      },
-      {
-        question: "'খাজাঞ্চি' বলতে কোন ব্যক্তিকে বোঝায়?",
-        options: ["সেনাপতিকে", "নবাবকে", " ", " "],
-        answer: 0,
-      },
-      {
-        question: "ঐকতান সংগীতের মূর্ছনা",
-        options: ["1903 খ্রি", "1913 খ্রি.", "1923 খ্রি.", "1933 খ্রি."],
-        answer: 0,
-      },
-      // Add more questions as needed
-    ];
+    async function fetchNews(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
 
-    const banglaNumbers = Array.from(
-      { length: questions.length },
-      (_, i) => (i + 1).toString()
-    );
-    const optionLabels = ["ক", "খ", "গ", "ঘ"];
-    let selectedAnswers =
-      JSON.parse(localStorage.getItem("selectedAnswers")) ||
-      new Array(questions.length).fill(null);
+        // Assuming you want to load news from "The Daily Star" website
+        // You might need to adjust these selectors based on the actual HTML structure
+        const articles = doc.querySelectorAll('div.card-content'); // Adjust the selector here
 
-    const quizContainer = document.getElementById("quiz");
-    const resultContainer = document.getElementById("result");
-    const toggleAnswersBtn = document.getElementById("toggleAnswersBtn");
-    let answersShown = false;
+        const newsItems = [];
 
-    function buildQuiz(showAnswers = false) {
-      quizContainer.innerHTML = "";
-      questions.forEach((question, questionIndex) => {
-        const questionContainer = document.createElement("div");
-        questionContainer.classList.add("question-container");
+        articles.forEach(article => {
+          const titleElement = article.querySelector('h3.title'); // Adjust the selector here
+          const contentElement = article.querySelector('p'); // Adjust the selector here
 
-        const questionDiv = document.createElement("div");
-        questionDiv.classList.add("question");
-        questionDiv.innerHTML = `<strong>${banglaNumbers[questionIndex]}. ${question.question}</strong>`;
-        questionContainer.appendChild(questionDiv);
+          const title = titleElement ? titleElement.textContent.trim() : 'No Title';
+          const content = contentElement ? contentElement.textContent.trim() : 'No Content';
 
-        const optionsDiv = document.createElement("div");
-        optionsDiv.classList.add("options");
-
-        question.options.forEach((option, optionIndex) => {
-          const optionDiv = document.createElement("div");
-          optionDiv.classList.add("option");
-
-          // Mark selected
-          if (selectedAnswers[questionIndex] === question.options[optionIndex]) {
-            optionDiv.classList.add("selected");
-          }
-
-          // Show correct/incorrect if answersShown is true
-          if (showAnswers) {
-            if (optionIndex === question.answer) {
-              optionDiv.classList.add("correct");
-            }
-            if (
-              selectedAnswers[questionIndex] === question.options[optionIndex] &&
-              optionIndex !== question.answer
-            ) {
-              optionDiv.classList.add("incorrect");
-            }
-          }
-
-          optionDiv.innerHTML = `<span>${optionLabels[optionIndex]}.</span>
-            <label>${option}</label>`;
-
-          if (!showAnswers) {
-            optionDiv.addEventListener("click", () =>
-              selectAnswer(questionIndex, optionIndex)
-            );
-          } else {
-            // disable click when showing answers
-            optionDiv.style.cursor = "default";
-          }
-
-          optionsDiv.appendChild(optionDiv);
+          newsItems.push({ title: title, content: content });
         });
 
-        questionContainer.appendChild(optionsDiv);
-        quizContainer.appendChild(questionContainer);
-      });
-    }
+        displayNews(newsItems);
 
-    function selectAnswer(questionIndex, selectedOptionIndex) {
-      selectedAnswers[questionIndex] = questions[questionIndex].options[
-        selectedOptionIndex
-      ];
-      localStorage.setItem("selectedAnswers", JSON.stringify(selectedAnswers));
-      buildQuiz(answersShown);
-    }
-
-    function showResult() {
-      let correctAnswers = 0;
-      questions.forEach((question, questionIndex) => {
-        if (
-          selectedAnswers[questionIndex] === question.options[question.answer]
-        ) {
-          correctAnswers++;
-        }
-      });
-      resultContainer.textContent = `You got ${correctAnswers} out of ${questions.length}`;
-    }
-
-    function resetQuiz() {
-      selectedAnswers = new Array(questions.length).fill(null);
-      localStorage.removeItem("selectedAnswers");
-      buildQuiz(false);
-      resultContainer.textContent = "";
-      if (answersShown) toggleAnswers();
-    }
-
-    function goBack() {
-      window.history.back();
-    }
-
-    function toggleAnswers() {
-      answersShown = !answersShown;
-      buildQuiz(answersShown);
-      if (answersShown) {
-        showResult();
-        toggleAnswersBtn.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-        toggleAnswersBtn.setAttribute("aria-label", "Hide answers");
-      } else {
-        resultContainer.textContent = "";
-        toggleAnswersBtn.innerHTML = '<i class="fa-regular fa-eye"></i>';
-        toggleAnswersBtn.setAttribute("aria-label", "Show answers");
+      } catch (error) {
+        console.error('Error fetching or parsing news:', error);
+        const newsContainer = document.getElementById('news-container');
+        newsContainer.innerHTML = '<p>Failed to load news.</p>';
       }
     }
 
-    toggleAnswersBtn.addEventListener("click", toggleAnswers);
+    function displayNews(news) {
+      const newsContainer = document.getElementById('news-container');
+      newsContainer.innerHTML = ''; // Clear existing content
 
-    // Initial build
-    buildQuiz(false);
+      news.forEach(item => {
+        const newsItemDiv = document.createElement('div');
+        newsItemDiv.classList.add('news-item');
+
+        const titleElement = document.createElement('h2');
+        titleElement.textContent = item.title;
+
+        const contentElement = document.createElement('p');
+        contentElement.textContent = item.content;
+
+        newsItemDiv.appendChild(titleElement);
+        newsItemDiv.appendChild(contentElement);
+
+        newsContainer.appendChild(newsItemDiv);
+      });
+    }
+
+    // Replace with your target news website URL
+    const newsUrl = 'https://www.prothomalo.com/';
+    fetchNews(newsUrl);
+
+    // Function to reload news every 10 minutes (adjust as needed)
+    function reloadNews() {
+      fetchNews(newsUrl);
+    }
+
+    // Set interval to reload news
+    setInterval(reloadNews, 600000); // Reload every 10 minutes (600000 milliseconds)
   </script>
 </body>
 </html>

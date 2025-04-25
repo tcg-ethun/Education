@@ -1,8 +1,5 @@
 
 
-
-
-
 const apiKey = 'kWWzeEU8ZVzx-ghbonfqkoPpg3XMXj_SGojrXb6DmmiF5b6l';
 const newsContainer = document.getElementById('news-container');
 const loader = document.getElementById('loader');
