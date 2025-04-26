@@ -92,12 +92,42 @@ h4{
     border-radius: 5px;
     color: white;
     background-color:rgb(43, 43, 245);
-    position:absolute;
     margin-left: 20px;
     transition-duration: .2s;
 }
 #home:active{
     transform: scale(.9);
+}
+
+.navigate{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 3%;
+    row-gap: 10px;
+}
+
+#nav{
+    font-family: 'bng';
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgb(47, 2, 109);
+    margin:05px;
+    color: white;
+    border:none;
+}
+
+#nav2{
+    width: 140px;
+    font-family: 'bng';
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgb(47, 2, 109);
+    margin:05px;
+    color: white;
+    border:none;
 }
 .quick{
     color: white;
