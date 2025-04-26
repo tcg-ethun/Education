@@ -129,6 +129,17 @@ h4{
     color: white;
     border:none;
 }
+
+#nav1{
+    width: 70px;
+    font-family: 'bng';
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgb(47, 2, 109);
+    margin:05px;
+    color: white;
+    border:none;
+}
 .quick{
     color: white;
     font-family: 'ex';
