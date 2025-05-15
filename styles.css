@@ -260,7 +260,7 @@ user-select: none;
   src: url(font/HindSiliguri-Regular.ttf);
 }
 .question {
-  font-size: 16px;
+  font-size: 15px;
   align-self: center;
   font-family: 'ip';
   color: rgb(0, 0, 0);
@@ -287,7 +287,7 @@ user-select: none;
   flex-wrap: wrap;
   height: auto;
   margin-top: 15px;
-  font-size: 3.6vw;
+  font-size: 14px;
   font-weight: 400;
   width: 95%;
   transition: background-color 0.3s;
@@ -365,14 +365,14 @@ h2{
 }
 
 .content-box{
-  width: 100%;
-  column-gap: 20px;
-  row-gap: 20px;
+  width: 95%;
+gap: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+font-size: 13px;
   height: auto;
-  padding-top: 30%;
+  padding-top: 100px;
   padding-bottom: 20%;
   flex-wrap: wrap;
   overflow-y: hidden;
@@ -402,11 +402,10 @@ body{
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 5px;
-gap: 10px;
-width: 38%;
+gap: 3px;
+width: 100px;
 border-radius: 10px;
-height: 9rem;
+height: 6rem;
 background-color: rgb(255, 255, 255);
 box-shadow: 0px 05px 15px rgb(222, 220, 220) ;
 font-family: ip;
@@ -515,3 +514,13 @@ border-radius: 5px;
 }
 
 
+  .bottom{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 3.6rem;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    justify-content: space-evenly;
+    align-items: center;
+  }
