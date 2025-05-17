@@ -37,25 +37,6 @@ a{
 }
 
 
-.navbar{
-  background-color:rgb(1, 4, 27);
-  width: 100%;
-  font-family: 'engs';
-  display: flex;
-  font-size: 18px;
-  z-index: 1000;
-  font-weight: bold;
-  position: fixed;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  color:rgb(255, 255, 255);
-  column-gap: 10px;
-  flex-direction: row;
-  justify-content: center;
-  /* justify-content: space-evenly; */
-  align-items: center;
-  height: 4rem;
-}
 #BTN{
   width: 100px;
   font-family: 'engs';
@@ -247,7 +228,7 @@ user-select: none;
 }
 #know{
   padding: 10px;
-  font-size: 5vw;
+  font-size: 20px;
   width: 100%;
   text-align: center;
   color: rgb(15, 9, 126);
@@ -366,14 +347,14 @@ h2{
 
 .content-box{
   width: 95%;
-gap: 10px;
+gap: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 font-size: 13px;
   height: auto;
-  padding-top: 100px;
-  padding-bottom: 20%;
+  padding-top: 50px;
+  padding-bottom: 40px;
   flex-wrap: wrap;
   overflow-y: hidden;
 }
@@ -403,9 +384,9 @@ display: flex;
 justify-content: center;
 align-items: center;
 gap: 3px;
-width: 100px;
+width: 150px;
 border-radius: 10px;
-height: 6rem;
+height: 6.2rem;
 background-color: rgb(255, 255, 255);
 box-shadow: 0px 05px 15px rgb(222, 220, 220) ;
 font-family: ip;
@@ -523,4 +504,16 @@ border-radius: 5px;
     bottom: 0;
     justify-content: space-evenly;
     align-items: center;
+  }
+  #nextBtn{
+    width: 140px;
+    border-radius: 50px;
+  }
+
+  .head{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
   }
