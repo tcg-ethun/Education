@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable='no"/>
+  <title>Word Game</title>
+  <link rel="stylesheet" href="./voca.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  
+</head>
+
+<body>
+  <button id="button" onclick="window.location.href='../index.html'"> <i class="fa-solid fa-arrow-left fa-lg"></i></button>
+  <div class="container" id="quiz-container">
+    <h2>Word Quiz</h2>
+    <div id="round-indicator">শব্দ বাছাই করুন</div>
+    <div id="pairs-container"></div>
+    <div id="english-words-container"></div>
+    <div id="round-result"></div>
+    <button id="reset-button" onclick="resetQuiz()">নতুন শব্দ</button>
+  </div>
+
+  <div id="solution-container">
+    <h3>কুইজের ফলাফল</h3>
+    <ul class="solution-list"></ul>
+  </div>
+
+  <script>
+    const wordPairsData = [
+      [
+        { bangla: "আলো", english: "Light" },
+        { bangla: "জল", english: "Water" },
+        { bangla: "পাখি", english: "Bird" },
+        { bangla: "সূর্য", english: "Sun" },
+        { bangla: "ঘর", english: "House" }
+      ],
+      [
+        { bangla: "নদী", english: "River" },
+        { bangla: "ফুল", english: "Flower" },
+        { bangla: "ফল", english: "Fruit" },
+        { bangla: "তারা", english: "Star" },
+        { bangla: "দিন", english: "Day" }
+      ],
+      [
+        { bangla: "মা", english: "Mother" },
+        { bangla: "বাবা", english: "Father" },
+        { bangla: "ভাই", english: "Brother" },
+        { bangla: "বোন", english: "Sister" },
+        { bangla: "বন্ধু", english: "Friend" }
+      ]
+    ];
+
+    let currentWordPairs = [];
+    let availableEnglishWords = [];
+    let userAnswers = {};
+
+    const quizContainer = document.getElementById('quiz-container');
+    const pairsContainer = document.getElementById('pairs-container');
+    const englishWordsContainer = document.getElementById('english-words-container');
+    const roundResultDiv = document.getElementById('round-result');
+    const solutionContainer = document.getElementById('solution-container');
+    const solutionList = solutionContainer.querySelector('.solution-list');
+
+    function initializeQuiz() {
+      currentWordPairs = wordPairsData[Math.floor(Math.random() * wordPairsData.length)];
+      availableEnglishWords = currentWordPairs.map(pair => pair.english);
+      userAnswers = {};
+
+      roundResultDiv.textContent = '';
+      solutionContainer.style.display = 'none';
+      quizContainer.style.display = 'flex';
+
+      generateQuizUI();
+    }
+
+    function generateQuizUI() {
+      pairsContainer.innerHTML = '';
+      englishWordsContainer.innerHTML = '';
+
+      currentWordPairs.forEach(pair => {
+        const wordPairDiv = document.createElement('div');
+        wordPairDiv.classList.add('word-pair');
+        wordPairDiv.innerHTML = `
+                    <div class="bangla">${pair.bangla}</div>
+                    <div class="drop-zone" data-bangla="${pair.bangla}" onclick="selectDropZone(this)"></div>
+                `;
+        pairsContainer.appendChild(wordPairDiv);
+      });
+
+      availableEnglishWords.forEach(word => {
+        const div = document.createElement('div');
+        div.classList.add('english-word');
+        div.textContent = word;
+        div.onclick = () => selectWord(word, div);
+        englishWordsContainer.appendChild(div);
+      });
+
+      selectedDropZone = null;
+    }
+
+    let selectedDropZone = null;
+
+    function selectDropZone(zone) {
+      selectedDropZone = zone;
+      // Highlight selected drop zone
+      document.querySelectorAll('.drop-zone').forEach(z => z.style.borderColor = '#ccc');
+      zone.style.borderColor = '#3a6df0';
+    }
+
+    function selectWord(word, element) {
+      if (!selectedDropZone) {
+        alert('প্রথমে একটি বাংলা শব্দের বক্সে ক্লিক করুন যেখানে আপনি ইংরেজি শব্দ বসাতে চান।');
+        return;
+      }
+
+      // পুরানো শব্দ থাকলে সাজেশনে ফেরত পাঠাও
+      const oldWord = selectedDropZone.textContent.trim();
+      if (oldWord) {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('english-word');
+        newDiv.textContent = oldWord;
+        newDiv.onclick = () => selectWord(oldWord, newDiv);
+        englishWordsContainer.appendChild(newDiv);
+      }
+
+      selectedDropZone.textContent = word;
+      selectedDropZone.style.borderColor = '#3a6df0';
+
+      const banglaWord = selectedDropZone.getAttribute('data-bangla');
+      userAnswers[banglaWord] = word;
+
+      element.remove();
+
+      selectedDropZone = null;
+      document.querySelectorAll('.drop-zone').forEach(z => z.style.borderColor = '#ccc');
+
+      checkIfComplete();
+    }
+
+    function checkIfComplete() {
+      const dropZones = document.querySelectorAll('.drop-zone');
+      let allFilled = true;
+      dropZones.forEach(zone => {
+        if (!zone.textContent.trim()) allFilled = false;
+      });
+
+      if (allFilled) {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      quizContainer.style.display = 'none';
+      solutionContainer.style.display = 'block';
+      roundResultDiv.textContent = 'আপনার ফলাফল নিচে দেখুন';
+
+      solutionList.innerHTML = '';
+
+      currentWordPairs.forEach(pair => {
+        const userAnswer = userAnswers[pair.bangla] || ' - ';
+        const li = document.createElement('li');
+        const correct = userAnswer === pair.english;
+        li.innerHTML = `<span>${pair.bangla}</span> <span style="color:${correct ? 'green' : 'red'}">${userAnswer} (${pair.english})</span>`;
+        solutionList.appendChild(li);
+      });
+    }
+
+    function resetQuiz() {
+      solutionContainer.style.display = 'none';
+      roundResultDiv.textContent = '';
+      quizContainer.style.display = 'flex';
+      initializeQuiz();
+    }
+
+    // শুরুতেই কুইজ লোড করো
+    initializeQuiz();
+  </script>
+</body>
+
+</html>
