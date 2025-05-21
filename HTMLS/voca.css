@@ -197,7 +197,7 @@ padding-bottom: 10px;
     .solution-list {
       list-style: none;
       padding-left: 0;
-      font-size: 1.1rem;
+      font-size: 16px;
       color: #444;
       max-height: 300px;
       overflow: hidden;
