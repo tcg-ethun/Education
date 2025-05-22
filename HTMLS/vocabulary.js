@@ -28,7 +28,7 @@
       ],
       [
           { bangla: " কোনো কিছুর পিছনে ছোটা", english: "pursue" },
-{ bangla: "ছেড়ে দেওয়া", english: "relinquish" },
+{ bangla: "কমে যাওয়া", english: " diminish" },
 { bangla: "ত্যাগ করা", english: "quit" },
 { bangla: " দীর্ঘায়িত করা", english: "prolong" },
 { bangla: "ছুড়ে ফেলা", english: "discard" },
@@ -36,7 +36,7 @@
       ],
       [
    { bangla: "ফেলে যাওয়া", english: "desert" },
-   { bangla: "কমে যাওয়া", english: " diminish" },
+   { bangla: "ছেড়ে দেওয়া", english: "relinquish" },
    { bangla: "আরো খারাপ করা", english: "make worse" },
    { bangla: "বাড়িয়ে দেয়া", english: "boost" },
    { bangla: "কমে যাওয়া", english: "dwindle" },
@@ -52,127 +52,143 @@
   
     ];
 
-    let currentWordPairs = [];
-    let availableEnglishWords = [];
-    let userAnswers = {};
+let currentWordPairs = [];
+let availableEnglishWords = [];
+let userAnswers = {};
 
-    const quizContainer = document.getElementById('quiz-container');
-    const pairsContainer = document.getElementById('pairs-container');
-    const englishWordsContainer = document.getElementById('english-words-container');
-    const roundResultDiv = document.getElementById('round-result');
-    const solutionContainer = document.getElementById('solution-container');
-    const solutionList = solutionContainer.querySelector('.solution-list');
+const quizContainer = document.getElementById('quiz-container');
+const pairsContainer = document.getElementById('pairs-container');
+const englishWordsContainer = document.getElementById('english-words-container');
+const roundResultDiv = document.getElementById('round-result');
+const solutionContainer = document.getElementById('solution-container');
+const solutionList = solutionContainer.querySelector('.solution-list');
 
-    function initializeQuiz() {
-      currentWordPairs = wordPairsData[Math.floor(Math.random() * wordPairsData.length)];
-      availableEnglishWords = currentWordPairs.map(pair => pair.english);
-      userAnswers = {};
+// Shuffle function
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
-      roundResultDiv.textContent = '';
-      solutionContainer.style.display = 'none';
-      quizContainer.style.display = 'flex';
+function initializeQuiz() {
+  currentWordPairs = wordPairsData[Math.floor(Math.random() * wordPairsData.length)];
+  availableEnglishWords = currentWordPairs.map(pair => pair.english);
 
-      generateQuizUI();
-    }
+  // ইংরেজি শব্দগুলো এলোমেলো করুন
+  shuffleArray(availableEnglishWords);
 
-    function generateQuizUI() {
-      pairsContainer.innerHTML = '';
-      englishWordsContainer.innerHTML = '';
+  userAnswers = {};
 
-      currentWordPairs.forEach(pair => {
-        const wordPairDiv = document.createElement('div');
-        wordPairDiv.classList.add('word-pair');
-        wordPairDiv.innerHTML = `
-                    <div class="bangla">${pair.bangla}</div>
-                    <div class="drop-zone" data-bangla="${pair.bangla}" onclick="selectDropZone(this)"></div>
-                `;
-        pairsContainer.appendChild(wordPairDiv);
-      });
+  roundResultDiv.textContent = '';
+  solutionContainer.style.display = 'none';
+  quizContainer.style.display = 'flex';
 
-      availableEnglishWords.forEach(word => {
-        const div = document.createElement('div');
-        div.classList.add('english-word');
-        div.textContent = word;
-        div.onclick = () => selectWord(word, div);
-        englishWordsContainer.appendChild(div);
-      });
+  generateQuizUI();
+}
 
-      selectedDropZone = null;
-    }
+function generateQuizUI() {
+  pairsContainer.innerHTML = '';
+  englishWordsContainer.innerHTML = '';
 
-    let selectedDropZone = null;
+  currentWordPairs.forEach(pair => {
+    const wordPairDiv = document.createElement('div');
+    wordPairDiv.classList.add('word-pair');
+    wordPairDiv.innerHTML = `
+      <div class="bangla">${pair.bangla}</div>
+      <div class="drop-zone" data-bangla="${pair.bangla}" onclick="selectDropZone(this)"></div>
+    `;
+    pairsContainer.appendChild(wordPairDiv);
+  });
 
-    function selectDropZone(zone) {
-      selectedDropZone = zone;
-      // Highlight selected drop zone
-      document.querySelectorAll('.drop-zone').forEach(z => z.style.borderColor = '#ccc');
-      zone.style.borderColor = '#3a6df0';
-    }
+  availableEnglishWords.forEach(word => {
+    const div = document.createElement('div');
+    div.classList.add('english-word');
+    div.textContent = word;
+    div.onclick = () => selectWord(word, div);
+    englishWordsContainer.appendChild(div);
+  });
 
-    function selectWord(word, element) {
-      if (!selectedDropZone) {
-        alert('প্রথমে একটি বাংলা শব্দের বক্সে ক্লিক করুন যেখানে আপনি ইংরেজি শব্দ বসাতে চান।');
-        return;
-      }
+  selectedDropZone = null;
+}
 
-      // পুরানো শব্দ থাকলে সাজেশনে ফেরত পাঠাও
-      const oldWord = selectedDropZone.textContent.trim();
-      if (oldWord) {
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('english-word');
-        newDiv.textContent = oldWord;
-        newDiv.onclick = () => selectWord(oldWord, newDiv);
-        englishWordsContainer.appendChild(newDiv);
-      }
+let selectedDropZone = null;
 
-      selectedDropZone.textContent = word;
-      selectedDropZone.style.borderColor = '#3a6df0';
+function selectDropZone(zone) {
+  selectedDropZone = zone;
+  // Highlight selected drop zone
+  document.querySelectorAll('.drop-zone').forEach(z => z.style.borderColor = '#ccc');
+  zone.style.borderColor = '#3a6df0';
+}
 
-      const banglaWord = selectedDropZone.getAttribute('data-bangla');
-      userAnswers[banglaWord] = word;
+function selectWord(word, element) {
+  if (!selectedDropZone) {
+    alert('প্রথমে একটি বাংলা শব্দের বক্সে ক্লিক করুন যেখানে আপনি ইংরেজি শব্দ বসাতে চান।');
+    return;
+  }
 
-      element.remove();
+  // পুরানো শব্দ থাকলে সাজেশনে ফেরত পাঠাও
+  const oldWord = selectedDropZone.textContent.trim();
+  if (oldWord) {
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('english-word');
+    newDiv.textContent = oldWord;
+    newDiv.onclick = () => selectWord(oldWord, newDiv);
+    englishWordsContainer.appendChild(newDiv);
+  }
 
-      selectedDropZone = null;
-      document.querySelectorAll('.drop-zone').forEach(z => z.style.borderColor = '#ccc');
+  selectedDropZone.textContent = word;
+  selectedDropZone.style.borderColor = '#3a6df0';
 
-      checkIfComplete();
-    }
+  const banglaWord = selectedDropZone.getAttribute('data-bangla');
+  userAnswers[banglaWord] = word;
 
-    function checkIfComplete() {
-      const dropZones = document.querySelectorAll('.drop-zone');
-      let allFilled = true;
-      dropZones.forEach(zone => {
-        if (!zone.textContent.trim()) allFilled = false;
-      });
+  element.remove();
 
-      if (allFilled) {
-        showResult();
-      }
-    }
+  selectedDropZone = null;
+  document.querySelectorAll('.drop-zone').forEach(z => z.style.borderColor = '#ccc');
 
-    function showResult() {
-      quizContainer.style.display = 'none';
-      solutionContainer.style.display = 'block';
-      roundResultDiv.textContent = 'আপনার ফলাফল নিচে দেখুন';
+  checkIfComplete();
+}
 
-      solutionList.innerHTML = '';
+function checkIfComplete() {
+  const dropZones = document.querySelectorAll('.drop-zone');
+  let allFilled = true;
+  dropZones.forEach(zone => {
+    if (!zone.textContent.trim()) allFilled = false;
+  });
 
-      currentWordPairs.forEach(pair => {
-        const userAnswer = userAnswers[pair.bangla] || ' - ';
-        const li = document.createElement('li');
-        const correct = userAnswer === pair.english;
-        li.innerHTML = `<span>${pair.bangla}</span> <span style="color:${correct ? 'green' : 'red'}">${userAnswer} (${pair.english})</span>`;
-        solutionList.appendChild(li);
-      });
-    }
+  if (allFilled) {
+    showResult();
+  }
+}
 
-    function resetQuiz() {
-      solutionContainer.style.display = 'none';
-      roundResultDiv.textContent = '';
-      quizContainer.style.display = 'flex';
-      initializeQuiz();
-    }
+function showResult() {
+  quizContainer.style.display = 'none';
+  solutionContainer.style.display = 'block';
+  roundResultDiv.textContent = 'আপনার ফলাফল নিচে দেখুন';
 
-    // শুরুতেই কুইজ লোড করো
-    initializeQuiz();
+  solutionList.innerHTML = '';
+
+  // currentWordPairs এর কপি তৈরি করে সেটাকে শাফল করবো
+  const shuffledPairs = [...currentWordPairs];
+  shuffleArray(shuffledPairs);
+
+  shuffledPairs.forEach(pair => {
+    const userAnswer = userAnswers[pair.bangla] || ' - ';
+    const li = document.createElement('li');
+    const correct = userAnswer === pair.english;
+    li.innerHTML = `<span>${pair.bangla}</span> <span style="color:${correct ? 'green' : 'red'}">${userAnswer} (${pair.english})</span>`;
+    solutionList.appendChild(li);
+  });
+}
+
+function resetQuiz() {
+  solutionContainer.style.display = 'none';
+  roundResultDiv.textContent = '';
+  quizContainer.style.display = 'flex';
+  initializeQuiz();
+}
+
+// শুরুতেই কুইজ লোড করো
+initializeQuiz();
