@@ -28,7 +28,7 @@
       ],
       [
           { bangla: " কোনো কিছুর পিছনে ছোটা", english: "pursue" },
-{ bangla: "ছেড়ে দেওয়া", english: "relinquish" },
+{ bangla: "কমে যাওয়া", english: " diminish" },
 { bangla: "ত্যাগ করা", english: "quit" },
 { bangla: " দীর্ঘায়িত করা", english: "prolong" },
 { bangla: "ছুড়ে ফেলা", english: "discard" },
@@ -36,7 +36,7 @@
       ],
       [
    { bangla: "ফেলে যাওয়া", english: "desert" },
-   { bangla: "কমে যাওয়া", english: " diminish" },
+   { bangla: "ছেড়ে দেওয়া", english: "relinquish" },
    { bangla: "আরো খারাপ করা", english: "make worse" },
    { bangla: "বাড়িয়ে দেয়া", english: "boost" },
    { bangla: "কমে যাওয়া", english: "dwindle" },
