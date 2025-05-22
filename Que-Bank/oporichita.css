@@ -2,6 +2,7 @@
         font-family: 'bng';
         margin: 0;
         padding: 0;
+        user-select: none;
   }
   
   body {
@@ -152,3 +153,21 @@
     justify-content: flex-start;
     padding: 10px;
 }
+
+ .load-more-btn {
+          width: 200px;
+          border: none;
+          background-color: #0C9488;
+          font-size: 15px;
+          border-radius: 25px;
+          color: white;
+          margin-left: 25%;
+          margin-bottom: 5%;
+          padding: 7px;
+          transition-duration: .2s;
+          box-shadow: 0px 05px 15px rgb(220, 219, 219);
+          margin-bottom: 10%;
+        }
+        .load-more-btn:active{
+            transform: scale(.9);
+        }

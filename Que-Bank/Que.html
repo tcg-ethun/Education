@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>প্রশ্ন-উত্তর কার্ড (রেসপনসিভ)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #f5f3ef;
+            font-family: 'Hind Siliguri', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 16px;
+        }
+        .question-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 22px 18px 18px 18px;
+            margin-bottom: 26px;
+            position: relative;
+            transition: box-shadow 0.2s;
+        }
+        .question-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .question {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            color: #222;
+        }
+        .badge-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+        .badge {
+            display: inline-block;
+            background: #b2ebf2;
+            color: #0277bd;
+            font-weight: bold;
+            padding: 6px 18px;
+            border-radius: 22px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+        .solution-btn {
+            background: #d6f5df;
+            color: #2e7d32;
+            padding: 14px 0;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 0;
+            transition: background 0.2s;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .solution-btn:hover {
+            background: #b2f2cc;
+        }
+        .solution-box {
+            background: #f1f8e9;
+            color: #222;
+            border-radius: 10px;
+            padding: 18px 14px;
+            margin-top: 20px;
+            font-size: 17px;
+            display: none;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+            word-break: break-word;
+        }
+        .solution-box.active {
+            display: block;
+            box-shadow: 0 2px 8px rgba(76,175,80,0.08);
+        }
+        .load-more-btn {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 14px 0;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 20px auto;
+            transition: background 0.2s;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+            display: block;
+        }
+        .load-more-btn:hover {
+            background: #bbdefb;
+        }
+        @media (max-width: 600px) {
+            .container {
+                max-width: 90%;
+                padding: 12px;
+            }
+            .question-card {
+                padding: 15px 15px 12px 15px;
+                border-radius: 11px;
+            }
+            .question {
+                font-size: 17px;
+                margin-bottom: 13px;
+            }
+            .badge {
+                font-size: 13px;
+                padding: 5px 11px;
+                border-radius: 14px;
+            }
+            .solution-btn, .load-more-btn {
+                font-size: 15px;
+                padding: 11px 0;
+                border-radius: 8px;
+            }
+            .solution-box {
+                font-size: 15px;
+                padding: 13px 8px;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="questions-container"></div>
+    <button class="load-more-btn" id="load-more-btn">আরও প্রশ্ন লোড করুন</button>
+    <script>
+        // বড় প্রশ্ন ডাটাবেস তৈরি করি
+        const allQuestions = [
+            {
+                id: 1,
+                question: "এক মুষ্টি ভিক্ষা দেওয়াকে আমরা কী মনে করে থাকি?",
+                answer: "আমরা একে দান হিসেবে মনে করি। এটি মানবিক ও সামাজিক দায়িত্ববোধের পরিচয়।",
+                code: "RUMC 24"
+            },
+            {
+                id: 2,
+                question: "সিরাজউদ্দৌলার স্ত্রীর নাম কী?",
+                answer: "লুৎফুন্নেসা বেগম।",
+                code: "RCC 24"
+            },
+            {
+                id: 3,
+                question: "সিরাজউদ্দৌলা নাটকের প্রথম সংলাপ কার?",
+                answer: "মীরজাফর।",
+                code: "RB, CB, Ctg B, B"
+            }
+        ];
+
+        // আরও প্রশ্ন যোগ করি (মোট ৫০+ প্রশ্ন হবে)
+        for(let i = 4; i <= 60; i++) {
+            allQuestions.push({
+                id: i,
+                question: `প্রশ্ন নম্বর ${i}?`,
+                answer: `প্রশ্ন ${i} এর উত্তর এখানে।`,
+                code: `কোড ${i}`
+            });
+        }
+
+    </script>
+</body>
+</html>
