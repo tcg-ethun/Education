@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="./oporichita.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <button onclick="window.location.href='./category-list.html'" id="button"><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+
+    <div id="title">  বিলাসী ক ভাণ্ডার  </div>
+    <div class="container" id="questions-container"></div>
+    <button class="load-more-btn" id="load-more-btn">Load More</button>
+
+    <script>
+    const allQuestions = [
+            {
+                id: 1,
+                question: "এডেন কীসের জন্য বিখ্যাত?   ",
+                answer: "এডেন বন্দর সামুদ্রিক লবণ তৈরির জন্য বিখ্যাত।  ",
+                code: " RB 23"
+            },
+            {
+                id: 2,
+                question: " ‘বিলাসী’ গল্পটি প্রথমে কোন পত্রিকায় প্রকাশিত হয়?   ",
+                answer: " 'বিলাসী' গল্পটি প্রথম 'ভারতী' পত্রিকায় প্রকাশিত হয় ।  ",
+                code: "Din B 24,SB 22,ACC 23,RMSC 23  "
+            },
+            {
+                id: 3,
+                question: " মৃত্যুঞ্জয় কোন ক্লাসে পড়ত?  ",
+                answer: " মৃত্যুঞ্জয় আজীবন থার্ড ক্লাসে পড়ত। ",
+                code: "Din B 23  "
+            },
+            {
+                id: 4,
+                question: "‘বিলাসী’ গল্পের গল্পকথকের নাম কী?    ",
+                answer: "'বিলাসী' গল্পের গল্প কথকের নাম ন্যাড়া।  ",
+                code: " Ctg 22 "
+            },
+            {
+                id: 5,
+                question: " শরৎচন্দ্র চট্টোপাধ্যায় 'মন্দির' গল্পের জন্য কী পুরস্কার পেয়েছেন?  ",
+                answer: " শরৎচন্দ্র চট্টোপাধ্যায় 'মন্দির' গল্পের জন্য কুন্তলীন পুরস্কার পেয়েছেন। ",
+                code: " ICM 23 "
+            },
+        
+            {
+                id: 6,
+                question: "প্রত্নতাত্ত্বিকদের গবেষণার বিষয় কী?   ",
+                answer: "মৃত্যুঞ্জয় কবে প্রথম থার্ড ক্লাসে উঠেছিল এটা প্রত্নতাত্ত্বিকদের গবেষণার বিষয়। ",
+                code: "SCC 24  "
+            },
+        
+            {
+                id: 7,
+                question: " 'ফোর্থ ক্লাস' বলতে কোন ক্লাসকে বোঝানো হয়েছে?  ",
+                answer: "'ফোর্থ ক্লাস' বলতে এখনকার সপ্তম ক্লাসকে বোঝানো হয়েছে।  ",
+                code: "  MB 23,MGCC 24,NDCD 23 "
+            },
+            {
+                id: 8,
+                question: " সাপুড়েদের সবচেয়ে লাভের ব্যাবসা কী?  ",
+                answer: "সাপুড়েদের সবচেয়ে লাভের ব্যবসা শিকড় বিক্রি করা।  ",
+                code: " JCC 24 "
+            },
+            {
+                id: 9,
+                question: "  ন্যাড়ার সন্নাসীগিরি ইস্তফার কারণ কী? ",
+                answer: "মশার কামড় সহ্য করতে না পেরে ন্যাড়া সন্ন্যাসীগিরিতে ইস্তফা দেন।",
+                code: " Ctg 23 "
+            },
+            {
+                id: 10,
+                question: "‘বিলাসী’ গল্পে কোন মোগল সম্রাটের নাম উল্লেখ আছে?   ",
+                answer: " ‘বিলাসী' গল্পে মোগল সম্রাট হুমায়ুনের নাম উল্লেখ আছে।  ",
+                code: " BB 22,FCC 24  "
+            },
+        
+            {
+                id: 11,
+                question: "'বিলাসী' গল্পটি প্রথম কোন পত্রিকায় প্রকাশিত হয়?   ",
+                answer: "'বিলাসী' গল্পটি প্রথম ভারতী পত্রিকায় প্রকাশিত হয়।  ",
+                code: " JB 23"
+            },
+        
+            {
+                id: 12,
+                question: "   মৃত্যুঞ্জয়ের পোড়োবাড়িতে কীসের বালাই নেই? ",
+                answer: "মৃত্যুঞ্জয়ের পোড়োবাড়িতে প্রাচীরের বালাই নেই।  ",
+                code: " RUMC 23 "
+            },
+        
+            {
+                id: 13,
+                question: "'বিলাসী' গল্পটি প্রথম কোন পত্রিকায় প্রকাশিত হয়।  ",
+                answer: "'বিলাসী' গল্পটি প্রথম ভারতী পত্রিকায় প্রকাশিত হয়।  ",
+                code: " CB 23 "
+            },
+        
+            {
+                id: 14,
+                question: "'বিলাসী' গল্পে মৃত্যুঞ্জয়ের আমবাগানটির দৈর্ঘ্য কত ছিল?   ",
+                answer: "'বিলাসী' গল্পে মৃত্যুঞ্জয়ের আমবাগানটির দৈর্ঘ্য ছিল কুড়ি পঁচিশ বিঘা।  ",
+                code: "JGCC 23,JCC 23 "
+            },
+        
+            {
+                id: 15,
+                question: "'কাগজ তো ইঁদুর ও আনতে পারে' এ উক্তিটি 'বিলাসী' গল্পে কে বলেছিল?   ",
+                answer: " 'কাগজ তো ইঁদুর ও আনতে পারে' এ উক্তিটি বিলাসী গল্পে মৃত্যুঞ্জয় করেছিল। ",
+                code: "RCC 24  "
+            },
+            {
+                id: 16,
+                question: "  কামাখ্যা কীসের জন্য বিখ্যাত? ",
+                answer: "তান্ত্রিক সাধক ও উপাসকদের তন্ত্র সাধনার জন্য কামাখ্যা বিখ্যাত।  ",
+                code: "BCC 23  "
+            },
+            {
+                id: 17,
+                question: " ন্যাড়ার মাদুলি-কবচ কবরে দেওয়ার পরে তার কাছে আর কী অবশিষ্ট রইল?  ",
+                answer: "ন্যাড়ার মাদুলি-কবচ কবরে দেওয়ার পরে তার কাছে আর অবশিষ্ট রইল বিষহরির আজ্ঞা  ",
+                code: "  MB ,MB 22 "
+            },
+            {
+                id: 18,
+                question: " 'বিলাসী' গল্পে মৃত্যুঞ্জয় কোন ক্লাসে পড়ত?  ",
+                answer: "'বিলাসী' গল্পে মৃত্যুঞ্জয় আজীবন থার্ড ক্লাসে পড়ত। ",
+                code: " SB 23 "
+            },
+            {
+                id: 19,
+                question: " 'বিলাসী' গল্পের ন্যাড়া কত ক্রোশ পথ হেঁটে স্কুলে যেত?  ",
+                answer: "'বিলাসী' গল্পের ন্যাড়া দুই ক্রোশ পথ হেঁটে স্কুলে যেত। ",
+                code: " CB 24 "
+            },
+          
+        
+        ];
+
+
+
+
+
+
+
+
+        let currentPage = 0;
+        const questionsPerPage = 20;
+
+        function createCard(q) {
+            return `
+                <div class="question-card" id="card-${q.id}">
+                    <div class="question">${q.id}. ${q.question}</div>
+                    <div class="badge-row">
+                        <span class="badge">${q.code}</span>
+                    </div>
+                    <button class="solution-btn" id="show-btn-${q.id}" onclick="showSolution(${q.id})">সমাধান দেখো</button>
+                    <div class="solution-box" id="solution-${q.id}" onclick="hideSolution(event, ${q.id})">${q.answer}</div>
+                </div>
+            `;
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            const startIndex = currentPage * questionsPerPage;
+            const endIndex = startIndex + questionsPerPage;
+            const questionsToShow = allQuestions.slice(startIndex, endIndex);
+            
+            // নতুন প্রশ্নগুলি যোগ করি
+            const newCards = questionsToShow.map(createCard).join('');
+            
+            // যদি প্রথম পেজ হয় তাহলে রিপ্লেস করি, অন্যথায় যোগ করি
+            if (currentPage === 0) {
+                container.innerHTML = newCards;
+            } else {
+                container.innerHTML += newCards;
+            }
+            
+            // লোড বাটন দেখাব কি লুকাব তা ঠিক করি
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (endIndex >= allQuestions.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        function showSolution(id) {
+            document.getElementById(`show-btn-${id}`).style.display = 'none';
+            document.getElementById(`solution-${id}`).classList.add('active');
+        }
+
+        function hideSolution(event, id) {
+            // টেক্সট সিলেক্ট করলে hide হবে না
+            if (window.getSelection().toString()) return;
+            document.getElementById(`solution-${id}`).classList.remove('active');
+            document.getElementById(`show-btn-${id}`).style.display = 'block';
+        }
+
+        function loadMoreQuestions() {
+            currentPage++;
+            renderQuestions();
+        }
+
+        // প্রথমবার পেজ লোড হওয়ার সময় প্রথম ২৫টি প্রশ্ন দেখাই
+        renderQuestions();
+
+        // লোড বাটনে ক্লিক হ্যান্ডলার যোগ করি
+        document.getElementById('load-more-btn').addEventListener('click', loadMoreQuestions);
+
+        // window functions for inline onclick
+        window.showSolution = showSolution;
+        window.hideSolution = hideSolution;
+    </script>
+</body>
+</html>
