@@ -38,7 +38,7 @@ h2{
     src: url(../font/Poppins-Regular.ttf);
 }
 .academic{
-    background-color: #D2E7EC;
+    background-color: #ffffff;
     width: 90%;
     display: flex;
     justify-content: center;
@@ -65,5 +65,9 @@ h2{
     width: 130px;
     background-size: cover;
     height: 130px;
+    transition-duration: .2s;
     background-image: url(../Pho/Bangla.jpg);
+}
+.bangla:active{
+    transform: scale(.9);
 }
