@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="./oporichita.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <button onclick="window.location.href='./category-list.html'" id="button"><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+
+    <div id="title">  অপরিচিতা  ক ভাণ্ডার  </div>
+    <div class="container" id="questions-container"></div>
+    <script>
+        const questions = [
+            {
+                id: 1,
+                question: "বিনুদাদা অনুপমের কেমন ভাই? ",
+                answer: "বিনুদাদা অনুপমের পিসতুতো ভাই । ",
+                code: "JB 22"
+            },
+            {
+                id: 2,
+                question: "  রবীন্দ্রনাথের সর্বশেষ গল্পের নাম কী? ",
+                answer: "  রবীন্দ্রনাথের সর্বশেষ গল্পের নাম মুসলমানীর গল্প। ",
+                code: "Din B 23"
+            },
+            {
+                id: 3,
+                question: " কে আসর জমাইতে অদ্বিতীয়?  ",
+                answer: " হরিশ আসর জমাইতে অদ্বিতীয় ",
+                code: "FCC 23"
+            },
+            {
+                id: 4,
+                question: "  বিয়ে ভাঙার পর থেকে কল্যাণী কীসের ব্রত গ্রহণ করেছে? ",
+                answer: "বিয়ে ভাঙার পর কল্যাণী নারী শিক্ষার ব্রত গ্রহণ করছে।   ",
+                code: "RCC 23 "
+            },
+            {
+                id: 5,
+                question: " একান্তই নির্জীব, কোনো তেজ নাই- কার? ",
+                answer: "  শম্ভুনাথ বাবু একান্তই নির্জীব, কোনো তেজ নাই তার।",
+                code: "PCC 24"
+            },
+            {
+                id: 6,
+                question: " অনুপমের কাছে চিরকাল কোনটিকে বড়ো সত্য বলে মনে হয়েছে?   ",
+                answer: " অনুপমের কাছে চিরকাল বড়ো সত্য গলার স্বর।  ",
+                code: " MC 24"
+            },
+            {
+                id: 7,
+                question: "অনুপমকে 'মাকাল ফলের' সাথে তুলনা করে বিদ্রূপ করেছিল কে?   ",
+                answer: " অনুপমকে 'মাকাল ফল' এর সাথে তুলনা করে বিদ্রূপ করেছিল পণ্ডিতমশায়।  ",
+                code: " CB 19"
+            },
+            {
+                id: 8,
+                question: " বিবাহ ভাঙার পর হতে কল্যাণী কোন ব্রত গ্রহণ করেছে?  ",
+                answer: " বিবাহ ভাঙার পর থেকে কল্যাণী মেয়েদের শিক্ষা ব্রত গ্রহণ করেছে ।  ",
+                code: "SB 17 "
+            },
+            {
+                id: 9,
+                question: " হরিশ কোথায় কাজ করে?  ",
+                answer: "হরিশ কানপুরে কাজ করে।   ",
+                code: " RCC 23"
+            },
+            {
+                id: 10,
+                question: "কল্যাণী কোন স্টেশনে নেমেছিল? ",
+                answer: " কল্যাণী কানপুর স্টেশনে নেমেছিল।  ",
+                code: "MB 22"
+            },
+            {
+                id: 11,
+                question: " 'অপরিচিতা' গল্পে কন্যাকে কী দিয়ে আশীর্বাদ করা হয়েছিল?  ",
+                answer: "  অপরিচিতা' গল্পে কন্যাকে এয়ারিং দিয়ে আশীর্বাদ করা হয়েছিল। ",
+                code: " JB 17"
+            },
+            {
+                id: 12,
+                question: " কন্সট' শব্দের অর্থ কী?  ",
+                answer: "কন্সট' শব্দের অর্থ নানা রকম বাদ্যযন্ত্রের ঐকতান।  ",
+                code: "CB 17 "
+            },
+            {
+                id: 13,
+                question: "  কাকে 'মাকাল ফল' বলে বিদ্রূপ করা হয়েছে? ",
+                answer: "  অনুপমকে 'মাকাল ফল' বলে বিদ্রূপ করা হয়েছে। ",
+                code: "RB 17 "
+            },
+            {
+                id: 14,
+                question: "কন্যাকে আশীর্বাদ করার জন্য কাকে পাঠানো হলো?   ",
+                answer: " কন্যাকে আশীর্বাদ করার জন্য অনুপমের পিসতুতো ভাই বিনুদাদাকে পাঠানো হয়েছিল।  ",
+                code: "Ctg 17 "
+            },
+            {
+                id: 15,
+                question: "  অনুপমের পরিবার কল্যাণীকে কী দিয়ে আশীর্বাদ করেছিল? ",
+                answer: " অনুপমের পরিবার কল্যাণীকে একজোড়া এয়ারিং দিয়ে আশীর্বাদ করেছিল। ",
+                code: "BCC 23"
+            },
+           
+        ];
+
+
+
+
+
+
+
+
+
+        
+        function createCard(q) {
+            return `
+                <div class="question-card" id="card-${q.id}">
+                    <div class="question">${q.id}. ${q.question}</div>
+                    <div class="badge-row">
+                        <span class="badge">${q.code}</span>
+                    </div>
+                    <button class="solution-btn" id="show-btn-${q.id}" onclick="showSolution(${q.id})">সমাধান দেখো</button>
+                    <div class="solution-box" id="solution-${q.id}" onclick="hideSolution(event, ${q.id})">${q.answer}</div>
+                </div>
+            `;
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = questions.map(createCard).join('');
+        }
+
+        function showSolution(id) {
+            document.getElementById(`show-btn-${id}`).style.display = 'none';
+            document.getElementById(`solution-${id}`).classList.add('active');
+        }
+
+        function hideSolution(event, id) {
+            // টেক্সট সিলেক্ট করলে hide হবে না
+            if (window.getSelection().toString()) return;
+            document.getElementById(`solution-${id}`).classList.remove('active');
+            document.getElementById(`show-btn-${id}`).style.display = 'block';
+        }
+
+        renderQuestions();
+        // window functions for inline onclick
+        window.showSolution = showSolution;
+        window.hideSolution = hideSolution;
+    </script>
+</body>
+</html>

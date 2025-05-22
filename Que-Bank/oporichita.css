@@ -1,0 +1,152 @@
+  *{
+        font-family: 'bng';
+        margin: 0;
+        padding: 0;
+  }
+  
+  body {
+            background: #f5f3ef;
+                font-family: 'bng';
+            margin: 0;
+            padding: 0;
+        }
+        @font-face {
+    font-family: 'bng';
+    src: url(../font/HindSiliguri-Regular.ttf);
+}
+        .container {
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 16px;
+        }
+        .question-card {
+                font-family: 'bng';
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: box-shadow 0.2s;
+        }
+        .question-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .question {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            color: #222;
+        }
+        .badge-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+        .badge {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 17px;
+            background: #a5f3fd;
+            color: #000000;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+        .solution-btn {
+            background: #d6f5df;
+            color: #2e7d32;
+            padding: 14px 0;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 500;
+                font-family: 'bng';
+            cursor:none;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .solution-btn:hover {
+            background: #b2f2cc;
+        }
+        .solution-box {
+            background: #f1f8e9;
+            color: #222;
+            border-radius: 10px;
+            padding: 18px 14px;
+            margin-top: 20px;
+            font-size: 17px;
+            display: none;
+            cursor: none;
+            transition: box-shadow 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+                font-family: 'bng';
+            text-align: left;
+            word-break: break-word;
+        }
+        .solution-box.active {
+            display: block;
+            box-shadow: 0 2px 8px rgba(76,175,80,0.08);
+        }
+        @media (max-width: 600px) {
+            .container {
+                max-width: 90%;
+                padding: 12px;
+            }
+            .question-card {
+                padding: 15px 15px 12px 15px;
+                border-radius: 11px;
+            }
+            .question {
+                font-size: 17px;
+                margin-bottom: 13px;
+            }
+            .badge {
+                font-size: 13px;
+                padding: 5px 11px;
+                border-radius: 14px;
+            }
+            .solution-btn {
+                font-size: 15px;
+                padding: 11px 0;
+                border-radius: 8px;
+            }
+            .solution-box {
+                font-size: 15px;
+                padding: 13px 8px;
+                border-radius: 8px;
+            }
+        }
+
+        #title{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 19px;
+    margin-top: 10px;
+    display: flex;
+}
+#button{
+ background-color: #f6f3ec;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 90%;
+    justify-content: flex-start;
+    padding: 10px;
+}
