@@ -27,6 +27,7 @@
             margin-bottom: 25px;
             padding-bottom: 20px;
             display: flex;
+            font-size: 15px;
             flex-direction: column;
             position: relative;
             transition: box-shadow 0.2s;
@@ -35,7 +36,7 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.12);
         }
         .question {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
             margin-bottom: 18px;
             line-height: 1.5;
@@ -60,7 +61,7 @@
             letter-spacing: 0.5px;
         }
         .solution-btn {
-            background: #d6f5df;
+            background: #DCFCE7;
             color: #2e7d32;
             padding: 14px 0;
             text-align: center;
@@ -80,7 +81,7 @@
             background: #b2f2cc;
         }
         .solution-box {
-            background: #f1f8e9;
+           background: #DCFCE7;
             color: #222;
             border-radius: 10px;
             padding: 18px 14px;
@@ -107,9 +108,10 @@
             .question-card {
                 padding: 15px 15px 12px 15px;
                 border-radius: 11px;
+                font-size: 15px;
             }
             .question {
-                font-size: 17px;
+                font-size: 15px;
                 margin-bottom: 13px;
             }
             .badge {
