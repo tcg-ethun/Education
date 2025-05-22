@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="./oporichita.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <button onclick="window.location.href='./category-list.html'" id="button"><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+
+    <div id="title">  অপরিচিতা খ ভাণ্ডার  </div>
+    <div class="container" id="questions-container"></div>
+    <button class="load-more-btn" id="load-more-btn">Load More</button>
+
+    <script>
+    const allQuestions = [
+            {
+                id: 1,
+                question: " 'একে তো বরের হাট মহার্ঘ, তাহার পরে ধনুকভাঙা পণ' – ব্যাখ্যা কর।  ",
+                answer: " পনেরো বছর বয়সেও কল্যাণীর বিয়ে না হওয়ার কারণ নির্দেশ করা হয়েছে উক্তিটির মাধ্যমে। কল্যাণীর বয়স পনেরো যা তৎকালীন সমাজব্যবস্থায় বিয়ের যোগ্য কন্যার জন্য অনেকটাই বেশি। মোটা টাকা পণ দিতে হয় বলে সুপাত্র মেলাই ভার। তবে এ ব্যাপারে কল্যাণীর বাবা চিন্তিত নয়। বয়স যতই হোক উপযুক্ত পাত্র ছাড়া কন্যার বিয়ে না দিতে তিনি দৃঢ়প্রতিজ্ঞ। তখনকার সমাজে কন্যার পিতার এরূপ মনোভাবের প্রকাশ ঘটতে সাধারণত দেখা যেত না। ",
+                code: " Din B 23 "
+            },
+        
+            {
+                id: 2,
+                question: " “মেয়ের চেয়ে মেয়ের বাপের খবরটাই তাঁহার কাছে গুরুতর।”- ব্যাখ্যা কর।  ",
+                answer: "  বিয়েতে কল্যাণীর যোগ্যতার চেয়ে তার পিতা শম্ভুনাথ কী পরিমাণ পণ দিতে সক্ষম অনুপমের মামার কাছে সেটি বেশি গুরুত্বপূর্ণ বিষয় ছিল। হরিশ অনুপমের মামার কাছে অনুপমের জন্য পাত্রীর সন্ধান দেয়। পাত্রীর কথা জানার চেয়ে মামার কাছে পাত্রীর বাবার বিষয়-সম্পত্তির ব্যাপারে জানার বেশি আগ্রহ দেখা যায়। অর্থাৎ উক্তিটিতে অনুপমের মামার যৌতুকলিপ্সার দিকটি উন্মোচিত হয়েছে। ",
+                code: "JB 22 "
+            },
+        
+            {
+                id: 3,
+                question: "  অনুপমের মামা বিয়ে বাড়িতে সেকরাকে সঙ্গে নিয়ে গিয়েছিল কেন? ",
+                answer: " বিয়ে বাড়িতে অনুপমের মামা সেকরা নিয়ে গিয়েছিল মূলত স্বর্ণ আসল কিনা তা যাচাই করার জন্য। অনুপমের সাথে শম্ভুনাথের কন্যা কল্যাণীর বিয়ে ঠিক হয়। বিয়েতে যৌতুক হিসেবে কিছু পরিমাণ স্বর্ণের গহনা ধার্য করা হয়। অনুপমের মামা এই ধার্যকৃত স্বর্ণের গহনা যাচাই করার জন্যই সঙ্গে, করে সেকরা নিয়ে গিয়েছিলেন। তিনি আশঙ্কা করছিলেন, শম্ভুনাথ নকল গহনা দিয়ে তাদেরকে ঠকাতে পারে। এজন্যই মূলত অনুপমের মামা বিয়ে বাড়িতে সঙ্গে করে সেকরা নিয়ে গিয়েছিলেন।",
+                code: "RCC 23 "
+            },
+        
+            {
+                id: 4,
+                question: "  ",
+                answer: " ",
+                code: " "
+            },
+        
+            {
+                id: 5,
+                question: "  ",
+                answer: " ",
+                code: " "
+            },
+        
+            {
+                id: 6,
+                question: "  ",
+                answer: " ",
+                code: " "
+            },
+        
+
+        ];
+
+
+
+
+
+
+
+
+        let currentPage = 0;
+        const questionsPerPage = 20;
+
+        function createCard(q) {
+            return `
+                <div class="question-card" id="card-${q.id}">
+                    <div class="question">${q.id}. ${q.question}</div>
+                    <div class="badge-row">
+                        <span class="badge">${q.code}</span>
+                    </div>
+                    <button class="solution-btn" id="show-btn-${q.id}" onclick="showSolution(${q.id})">সমাধান দেখো</button>
+                    <div class="solution-box" id="solution-${q.id}" onclick="hideSolution(event, ${q.id})">${q.answer}</div>
+                </div>
+            `;
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            const startIndex = currentPage * questionsPerPage;
+            const endIndex = startIndex + questionsPerPage;
+            const questionsToShow = allQuestions.slice(startIndex, endIndex);
+            
+            // নতুন প্রশ্নগুলি যোগ করি
+            const newCards = questionsToShow.map(createCard).join('');
+            
+            // যদি প্রথম পেজ হয় তাহলে রিপ্লেস করি, অন্যথায় যোগ করি
+            if (currentPage === 0) {
+                container.innerHTML = newCards;
+            } else {
+                container.innerHTML += newCards;
+            }
+            
+            // লোড বাটন দেখাব কি লুকাব তা ঠিক করি
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (endIndex >= allQuestions.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        function showSolution(id) {
+            document.getElementById(`show-btn-${id}`).style.display = 'none';
+            document.getElementById(`solution-${id}`).classList.add('active');
+        }
+
+        function hideSolution(event, id) {
+            // টেক্সট সিলেক্ট করলে hide হবে না
+            if (window.getSelection().toString()) return;
+            document.getElementById(`solution-${id}`).classList.remove('active');
+            document.getElementById(`show-btn-${id}`).style.display = 'block';
+        }
+
+        function loadMoreQuestions() {
+            currentPage++;
+            renderQuestions();
+        }
+
+        // প্রথমবার পেজ লোড হওয়ার সময় প্রথম ২৫টি প্রশ্ন দেখাই
+        renderQuestions();
+
+        // লোড বাটনে ক্লিক হ্যান্ডলার যোগ করি
+        document.getElementById('load-more-btn').addEventListener('click', loadMoreQuestions);
+
+        // window functions for inline onclick
+        window.showSolution = showSolution;
+        window.hideSolution = hideSolution;
+    </script>
+</body>
+</html>
