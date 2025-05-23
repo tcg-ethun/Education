@@ -12,6 +12,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Eng';
+            user-select: none;
         }
         
         body {
@@ -559,7 +560,6 @@
             
             modal.style.display = 'flex';
             
-            // মোবাইল ডিভাইসে স্ক্রল করা বন্ধ করুন
             document.body.style.overflow = 'hidden';
         }
         
@@ -591,10 +591,10 @@
                 updateProfileUI(profileData);
                 
                 // সফল সংরক্ষণের জন্য সতর্কতা
-                alert('প্রোফাইল সফলভাবে আপডেট করা হয়েছে!');
+                alert('Profile Successfully Updated !');
             } catch (error) {
                 console.error('Error saving profile data:', error);
-                alert('প্রোফাইল সংরক্ষণ করতে সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।');
+                alert('Something wrong ! Please Try Again .');
             }
         }
         
@@ -620,12 +620,12 @@
         
         // Update profile UI with data
         function updateProfileUI(data) {
-            document.getElementById('profileName').textContent = data.name || 'এডমিন নাম';
-            document.getElementById('profileEmail').textContent = data.email || 'admin@example.com';
-            document.getElementById('profilePhone').textContent = data.phone || '+880 1XXX-XXXXXX';
-            document.getElementById('profileAddress').textContent = data.address || 'ঢাকা, বাংলাদেশ';
-            document.getElementById('profileSchool').textContent = data.school || 'ঢাকা কলেজ';
-            document.getElementById('profileImage').src = data.image || 'https://via.placeholder.com/150';
+            document.getElementById('profileName').textContent = data.name || 'Your Name';
+            document.getElementById('profileEmail').textContent = data.email || 'user@gmail.com';
+            document.getElementById('profilePhone').textContent = data.phone || '+8801XXX-XXXXXX';
+            document.getElementById('profileAddress').textContent = data.address || 'Dhaka , Bangladesh';
+            document.getElementById('profileSchool').textContent = data.school || 'Bangladesh Nouhabini College , Kaptai';
+            document.getElementById('profileImage').src = data.image || 'Pho/Profile.jpg';
         }
         
         // Close modal when clicking outside of it
