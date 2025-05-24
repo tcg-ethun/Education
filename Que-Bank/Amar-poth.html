@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="./oporichita.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <button onclick="window.location.href='./category-list.html'" id="button"><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+
+    <div id="title">   আমার পথ <font color="blue"> &nbsp;  ক ভাণ্ডার  </font>  </div>
+
+    <div class="container" id="questions-container"></div>
+    <button class="load-more-btn" id="load-more-btn">Load More</button>
+
+    <script>
+    const allQuestions = [
+            {
+                id: 1,
+                question: "  'আমার পথ' প্রবন্ধ অবলম্বনে কোনটি সবচেয়ে বড় দাসত্ব? ",
+                answer: " আমার পথ' প্রবন্ধ অবলম্বনে সবচেয়ে বড় দাসত্ব হলো পরাবলম্বন। ",
+                code: " JB 23"
+            },
+            {
+                id: 2,
+                question: "  সবচেয়ে বড়ো দাসত্ব কোনটি?   ",
+                answer: "সবচেয়ে বড়ো দাসত্ব হলো পরাবলম্বনই।   ",
+                code: " MC 24"
+            },
+            {
+                id: 3,
+                question: " 'আমার পথ' প্রবন্ধে লেখক কাকে সালাম জানিয়েছেন?    ",
+                answer: "  'আমার পথ' প্রবন্ধে লেখক আপন সত্যকে সালাম জানিয়েছেন। ",
+                code: "DB 19 "
+            },
+            {
+                id: 4,
+                question: "   সবচেয়ে বড় ধর্ম কী? ",
+                answer: "  সবচেয়ে বড় ধর্ম মানুষ ধর্ম। ",
+                code: " Ctg 24"
+            },
+            // {
+            //     id: 5,
+            //     question: "   ",
+            //     answer: "  ",
+            //     code: " "
+            // },
+         
+     
+
+        ];
+
+
+
+
+
+
+
+
+        let currentPage = 0;
+        const questionsPerPage = 20;
+
+        function createCard(q) {
+            return `
+                <div class="question-card" id="card-${q.id}">
+                    <div class="question">${q.id}. ${q.question}</div>
+                    <div class="badge-row">
+                        <span class="badge">${q.code}</span>
+                    </div>
+                    <button class="solution-btn" id="show-btn-${q.id}" onclick="showSolution(${q.id})">সমাধান দেখো</button>
+                    <div class="solution-box" id="solution-${q.id}" onclick="hideSolution(event, ${q.id})">${q.answer}</div>
+                </div>
+            `;
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            const startIndex = currentPage * questionsPerPage;
+            const endIndex = startIndex + questionsPerPage;
+            const questionsToShow = allQuestions.slice(startIndex, endIndex);
+            
+            // নতুন প্রশ্নগুলি যোগ করি
+            const newCards = questionsToShow.map(createCard).join('');
+            
+            // যদি প্রথম পেজ হয় তাহলে রিপ্লেস করি, অন্যথায় যোগ করি
+            if (currentPage === 0) {
+                container.innerHTML = newCards;
+            } else {
+                container.innerHTML += newCards;
+            }
+            
+            // লোড বাটন দেখাব কি লুকাব তা ঠিক করি
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (endIndex >= allQuestions.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        function showSolution(id) {
+            document.getElementById(`show-btn-${id}`).style.display = 'none';
+            document.getElementById(`solution-${id}`).classList.add('active');
+        }
+
+        function hideSolution(event, id) {
+            // টেক্সট সিলেক্ট করলে hide হবে না
+            if (window.getSelection().toString()) return;
+            document.getElementById(`solution-${id}`).classList.remove('active');
+            document.getElementById(`show-btn-${id}`).style.display = 'block';
+        }
+
+        function loadMoreQuestions() {
+            currentPage++;
+            renderQuestions();
+        }
+
+        // প্রথমবার পেজ লোড হওয়ার সময় প্রথম ২৫টি প্রশ্ন দেখাই
+        renderQuestions();
+
+        // লোড বাটনে ক্লিক হ্যান্ডলার যোগ করি
+        document.getElementById('load-more-btn').addEventListener('click', loadMoreQuestions);
+
+        // window functions for inline onclick
+        window.showSolution = showSolution;
+        window.hideSolution = hideSolution;
+    </script>
+</body>
+</html>
+

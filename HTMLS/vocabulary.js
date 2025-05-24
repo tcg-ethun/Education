@@ -41,6 +41,7 @@
    { bangla: "বাড়িয়ে দেয়া", english: "boost" },
    { bangla: "কমে যাওয়া", english: "dwindle" },
       ],
+
       [
 
    { bangla: " কমানো", english: "lessen" },
