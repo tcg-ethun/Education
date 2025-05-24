@@ -10,7 +10,7 @@ const data = {
             id: 1,
             category: "Type 1",
             title: "দুটি সংখ্যা যোগ করার জন্য C Program",
-            flowchart: "images/hello_world_flowchart.png", 
+            flowchart: "../Pho/sum.jpg", 
             algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input a,b গ্রহণ করি ।\n3. sum = a+ b হিসাব করি ।\n4. Output sum প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
             code: `#include&ltstdio.h&gt
     main(){
