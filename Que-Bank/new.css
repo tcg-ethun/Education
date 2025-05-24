@@ -109,7 +109,7 @@ h2 {
 #problemsList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 1.8rem;
+    row-gap: 80px;
 }
 h3{
     margin-left: 20%;
