@@ -9,7 +9,7 @@ const data = {
         {
             id: 1,
             category: "Type 1",
-            title: "দুটি সংখ্যা যোগ করার জন্য C Program",
+            title: "দুটি সংখ্যা যোগফল নির্ণয় ",
             flowchart: "../Pho/sum.jpg", 
             algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input a,b গ্রহণ করি ।\n3. sum = a+ b হিসাব করি ।\n4. Output sum প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
             code: `#include&ltstdio.h&gt
@@ -19,6 +19,22 @@ const data = {
        scanf("%d",&b);
        sum = a+b;
        printf("%d",sum);
+}`
+        },
+        {
+            id: 1,
+            category: "Type 1",
+            title: "তিনটি সংখ্যার গড়  নির্ণয় ",
+            flowchart: "../Pho/avarage.jpg", 
+            algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input x,y,z গ্রহণ করি ।\n3. F = (x+y+z)/3 হিসাব করি ।\n4. Output F প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
+            code: `#include&ltstdio.h&gt
+    main(){
+       float x,y,z,F ;
+       scanf("%f",&x);
+       scanf("%f",&y);
+       scanf("%f",&z);
+        F= (x+y+z)/3;
+       printf("%.2f",F);
 }`
         },
 
@@ -77,7 +93,7 @@ function renderProblems() {
             </div>
 
             <div>
-                <div class="section-label">C Code</div>
+                <div class="section-label">C Program </div>
                 <pre class="code-block">${problem.code}</pre>
             </div>
         `;
