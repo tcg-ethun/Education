@@ -43,7 +43,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     flex-wrap: wrap;
     margin-top: 50px;
       font-family: 'eng';
@@ -60,6 +60,7 @@ h2{
     padding-top: 10px;
     justify-content: flex-start;
 }
+
 .bangla{
     border-radius: 10px;
     width: 130px;
@@ -69,5 +70,17 @@ h2{
     background-image: url(../Pho/Bangla.jpg);
 }
 .bangla:active{
+    transform: scale(.9);
+}
+
+.ict{
+    border-radius: 10px;
+    width: 130px;
+    background-size: cover;
+    height: 130px;
+    transition-duration: .2s;
+    background-image: url(../Pho/ICT.jpg);
+}
+.ict:active{
     transform: scale(.9);
 }

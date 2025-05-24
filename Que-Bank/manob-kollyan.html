@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="./oporichita.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <button onclick="window.location.href='./category-list.html'" id="button"><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+
+    <div id="title">   আমার পথ <font color="blue"> &nbsp;  ক ভাণ্ডার  </font>  </div>
+
+    <div class="container" id="questions-container"></div>
+    <button class="load-more-btn" id="load-more-btn">Load More</button>
+
+    <script>
+    const allQuestions = [
+            {
+                id: 1,
+                question: "  'আমার পথ' প্রবন্ধ অবলম্বনে কোনটি সবচেয়ে বড় দাসত্ব? ",
+                answer: " আমার পথ' প্রবন্ধ অবলম্বনে সবচেয়ে বড় দাসত্ব হলো পরাবলম্বন। ",
+                code: " JB 23"
+            },
+            {
+                id: 2,
+                question: "  সবচেয়ে বড়ো দাসত্ব কোনটি?   ",
+                answer: "সবচেয়ে বড়ো দাসত্ব হলো পরাবলম্বনই।   ",
+                code: " MC 24"
+            },
+            {
+                id: 3,
+                question: " 'আমার পথ' প্রবন্ধে লেখক কাকে সালাম জানিয়েছেন?    ",
+                answer: "  'আমার পথ' প্রবন্ধে লেখক আপন সত্যকে সালাম জানিয়েছেন। ",
+                code: "DB 19 "
+            },
+            {
+                id: 4,
+                question: "   সবচেয়ে বড় ধর্ম কী? ",
+                answer: "  সবচেয়ে বড় ধর্ম মানুষ ধর্ম। ",
+                code: " Ctg 24"
+            },
+            {
+                id: 5,
+                question: " কাজী নজরুল ইসলামের মতে কোনটি নিষ্ক্রিয় করে দেয়?   ",
+                answer: " কবি কাজী নজরুল ইসলামের মতে, পরাবলম্বন আমাদের নিষ্ক্রিয় করে দেয়।  ",
+                code: "BCC 23 "
+            },
+            {
+                id: 6,
+                question: "  ‘আমার পথ’ প্রবন্ধে নিজের ওপর অটুট বিশ্বাস করতেই শেখাচ্ছিলেন কে?  ",
+                answer: " আমার পথ' প্রবন্ধে নিজের ওপর অটুট বিশ্বাস করতেই শেখাচ্ছিলেন মহাত্মা গান্ধীজি।  ",
+                code: "JB 22 "
+            },
+            {
+                id: 7,
+                question: "  কাজী নজরুল ইসলামের মতে কে মিথ্যাকে ভয় করে?  ",
+                answer: " কাজী নজরুল ইসলামের মতে যার মনে মিথ্যা সেই মিথ্যাকে ভয় করে ।  ",
+                code: "SB 22 "
+            },
+            {
+                id: 8,
+                question: "   কাজী নজরুল ইসলাম কত বছর বয়সে দুরারোগ্য ব্যাধিতে আক্রান্ত হন?  ",
+                answer: " কাজী নজরুল ইসলাম তেতাল্লিশ বছর বয়সে দুরারোগ্য ব্যাধিতে আক্রান্ত হন।  ",
+                code: "Din B 17 "
+            },
+            {
+                id: 9,
+                question: " 'কুহেলিকা' কাজী নজরুল ইসলামের কোন ধরনের রচনা?   ",
+                answer: " 'কুহেলিকা' কাজী নজরুল ইসলামের একটি উপন্যাস।  ",
+                code: "Ctg 23 "
+            },
+         
+            {
+                id: 10,
+                question: " আমার পথ প্রবন্ধটি কোন গ্রন্থ থেকে সংকলিত হয়েছে?  ",
+                answer: "আমার পথ প্রবন্ধটি রুদ্রমঙ্গল গ্রন্থ থেকে সংকলিত হয়েছে  ",
+                code: " Din B 23"
+            },
+            {
+                id: 12,
+                question: "  কে বাইরের গোলামি থেকে রেহাই পায়না?  ",
+                answer: " যার অন্তরে গোলামির ভাব সে বাইরের গোলামি থেকে রেহাই পায়না।  ",
+                code: "CB 23 "
+            },
+            {
+                id: 13,
+                question: " 'মেকি' শব্দের অর্থ কী?    ",
+                answer: " 'মেকি' শব্দের অর্থ মিথ্যা।  ",
+                code: " MB 23"
+            },
+            {
+                id: 14,
+                question: " ‘কর্ণধার' শব্দটির অর্থ কী?   ",
+                answer: " ‘কর্ণধার' শব্দটির অর্থ মাঝি বা কান্ডারী; নেতৃত্ব প্রদানের সামর্থ্য আছে এমন ব্যক্তি  ",
+                code: " SB 23"
+            },
+            {
+                id: 15,
+                question: " ‘কুর্নিশ’ শব্দের অর্থ কী?  ",
+                answer: "‘কুর্নিশ' শব্দের অর্থ অভিবাদন ।  ",
+                code: " Din B 22"
+            },
+            {
+                id: 16,
+                question: " দেশের যারা শত্রু, দেশের যা কিছু মিথ্যা, ভণ্ডামি, মেকি তা সব দূর করতে কীসের প্রয়োজন হবে?  ",
+                answer: "দেশের যারা শত্রু ,দেশের যা কিছু মিথ্যা ,ভন্ডামী ,মেকি তার সব দূর করতে প্রয়োজন হবে আগুনের সম্মার্জনা।   ",
+                code: "BB 24 "
+            },
+            {
+                id: 17,
+                question: " 'আমার পথ' প্রবন্ধে কোনটিকে সবচেয়ে বড়ো ধর্ম বলা হয়েছে?  ",
+                answer: " 'আমার পথ' প্রবন্ধে মানুষ ধর্মই সবচেয়ে বড়ো ধর্ম বলা হয়েছে।  ",
+                code: "SCC 23 "
+            },
+            {
+                id: 18,
+                question: " সবচেয়ে বড় ধর্ম কোনটি?   ",
+                answer: "  সবচেয়ে বড়ো ধর্ম মানুষ ধর্ম।  ",
+                code: "BB 22 "
+            },
+            {
+                id: 19,
+                question: "  নিজের শক্তির উপর কখন অটুট বিশ্বাস আসে?   ",
+                answer: "নিজেকে চিনলে ও নিজের সত্যকেই নিজের কর্ণধার মনে করলে নিজের শক্তির উপর অটুট বিশ্বাস আসে।  ",
+                code: "BCC 24 "
+            },
+            {
+                id: 20,
+                question: "    আত্মাকে চিনলে কী আসে?  ",
+                answer: " আত্মাকে চিনলে আত্মনির্ভরতা  আসে। ",
+                code: "MB 24 "
+            },
+            {
+                id: 21,
+                question: "  'আমার পথ' প্রবন্ধে আমার পথ আমাকে কী দেখাবে?   ",
+                answer: " 'আমার পথ' প্রবন্ধে আমার পথ আমাকে আমার সত্য দেখাবে।  ",
+                code: "PCC 24 "
+            },
+            {
+                id: 22,
+                question: " কোনটি সবচেয়ে বড়ো দাসত্ব?   ",
+                answer: "পরাবলম্বনই সবচেয়ে বড়ো দাসত্ব।  ",
+                code: "RCC 24 "
+            },
+            {
+                id: 23,
+                question: "  'আমার পথ' প্রবন্ধ অনুযায়ী আত্মাকে চিনলেই কী আসে?  ",
+                answer: " ‘আমার পথ’ প্রবন্ধ অনুযায়ী আত্মাকে চিনলেই আত্মনির্ভরতা আসে।  ",
+                code: " RMSC 24 "
+            },
+            {
+                id: 24,
+                question: "  কাজী নজরুল ইসলামের মতে কোনটি আমাদের নিষ্ক্রিয় করে দেয়?  ",
+                answer: "   কাজী নজরুল ইসলামের মতে পরাবলম্বন আমাদের নিষ্ক্রিয় করে দেয়। ",
+                code: "JB 24 "
+            },
+            {
+                id: 25,
+                question: "   আমার পথ' প্রবন্ধটি কোন প্রবন্ধগ্রন্থ থেকে সংকলিত?  ",
+                answer: " আমার পথ' প্রবন্ধটি 'রুদ্র-মঙ্গল' প্রবন্ধগ্রন্থ থেকে সংকলিত। ",
+                code: "SCC 24 "
+            },
+            {
+                id: 26,
+                question: "   নিজের সত্যকেই নিজের কর্ণধার মনে জানলে নিজের শক্তির ওপর কী আসে?  ",
+                answer: "  নিজের সত্যকে নিজের কর্ণধার মনে জানলে নিজের শক্তির উপর বিশ্বাস আসে।  ",
+                code: " DB 23"
+            },
+            {
+                id: 27,
+                question: "   কে অন্য ধর্মকে ঘৃণা করতে পারে না?  ",
+                answer: " যে নিজ ধর্মের সত্যকে চিনেছে সে অন্য ধর্মকে ঘৃণা করতে পারে না।  ",
+                code: " HCC 24  "
+            },
+         
+            {
+                id: 28,
+                question: " 'আমার পথ' প্রবন্ধটি কোন প্রবন্ধগ্রন্থ থেকে নেয়া হয়েছে?   ",
+                answer: " 'আমার পথ' প্রবন্ধটি রুদ্রমঙ্গল প্রবন্ধগ্রন্থ থেকে নেয়া হয়েছে। ",
+                code: " Din B 24"
+            },
+            {
+                id: 29,
+                question: "কাজী নজরুল ইসলামের মাতার নাম কী?     ",
+                answer: " কাজী নজরুল ইসলামের মাতার নাম জাহেদা খাতুন ।   ",
+                code: " NDCD 23 "
+            },
+            {
+                id: 30,
+                question: "  ‘আমার পথ’ প্রবন্ধ অনুযায়ী আত্মাকে চিনলেই কী আসে?   ",
+                answer: " 'আমার পথ'প্রবন্ধ অনুযায়ী আত্মাকে চিনলেই আত্মনির্ভরতা আসে  ",
+                code: "CB 22 "
+            },
+            {
+                id: 31,
+                question: "  ‘আমার পথ’ প্রবন্ধে ‘সম্মার্জনা’ শব্দটি কী অর্থে ব্যবহৃত হয়েছে?   ",
+                answer: " ‘আমার পথ' প্রবন্ধে ‘সম্মার্জনা' শব্দটি ভণ্ডামি, মেকি ও মিথ্যাকে মেজে-ঘষে পরিষ্কার করা অর্থে ব্যবহৃত হয়েছে।  ",
+                code: " RB 22,ACC 24 "
+            },
+            {
+                id: 32,
+                question: " আমার পথ' প্রবন্ধ অনুযায়ী অতি বিনয় প্রকাশে কী হয়?   ",
+                answer: " আমার পথ' প্রবন্ধ অনুযায়ী অতি বিনয় প্রকাশে নিজের সত্যকে অস্বীকার করে ফেলা হয়।  ",
+                code: " RCC 24 "
+            },
+            {
+                id: 33,
+                question: "   'আমার পথ' প্রবন্ধে 'আমার পথ' আমাকে কী দেখাবে?  ",
+                answer: " 'আমার পথ' প্রবন্ধে আমার পথ আমাকে দেখাবে আমার সত্য ।  ",
+                code: " DC 23"
+            },
+            {
+                id: 34,
+                question: "  আমি আছি -এটি কার কথা?  ",
+                answer: " আমি আছি”–এই কথাটি মহাত্মা গান্ধী বলেছেন।  ",
+                code: "RB 24 "
+            },
+            {
+                id: 35,
+                question: "   নিজের ওপর অটুট বিশ্বাস করতেই কে শেখাচ্ছিলেন?  ",
+                answer: " নিজের ওপর অটুট বিশ্বাস করতেই মহাত্মা গান্ধিজী শেখাচ্ছিলেন।  ",
+                code: "RCC 23 "
+            },
+            {
+                id: 36,
+                question: " ‘সম্মার্জনা’ শব্দের অর্থ কী?  ",
+                answer: "  সম্মার্জনা' শব্দের অর্থ ঘষে-মেজে পরিষ্কার করা। ",
+                code: "DB 22 "
+            },
+            {
+                id: 37,
+                question: "   'আমার পথ' প্রবন্ধে কোনটি সবচেয়ে বড়ো দাসত্ব?  ",
+                answer: " ‘আমার পথ' প্রবন্ধে পরাবলম্বনই সবচেয়ে বড়ো দাসত্ব ।  ",
+                code: " JGCC 23,JCC 23 "
+            },
+            {
+                id: 38,
+                question: "  ‘আমার পথ' প্রবন্ধে ‘আমার পথ' আমাকে কী দেখাবে?  ",
+                answer: " 'আমার পথ' প্রবন্ধে 'আমার পথ' আমাকে আমার সত্য দেখাবে।  ",
+                code: "  CB 19 "
+            },
+            {
+                id: 39,
+                question: " 'মেকি' শব্দের অর্থ কী?   ",
+                answer: " 'মেকি' শব্দের অর্থ মিথ্যা বা কপট।  ",
+                code: " NDCD 24 "
+            },
+            {
+                id: 40,
+                question: " কারা বাইরের গোলামি থেকে রক্ষা পায় না?   ",
+                answer: "  যাদের অন্তরে গোলামির ভাব আছে তারা বাইরের গোলামি থেকে রেহাই পায় না। ",
+                code: " RCC 23 "
+            },
+            {
+                id: 41,
+                question: "  'আমার পথ' প্রবন্ধটি কোন প্রবন্ধ গ্রন্থ থেকে নেওয়া হয়েছে?  ",
+                answer: " 'আমার পথ' প্রবন্ধটি 'রুদ্র-মঙ্গল' প্রবন্ধ গ্রন্থ থেকে নেওয়া হয়েছে। ",
+                code: "Din B 19 "
+            },
+         
+
+        ];
+
+
+
+
+
+
+
+
+        let currentPage = 0;
+        const questionsPerPage = 20;
+
+        function createCard(q) {
+            return `
+                <div class="question-card" id="card-${q.id}">
+                    <div class="question">${q.id}. ${q.question}</div>
+                    <div class="badge-row">
+                        <span class="badge">${q.code}</span>
+                    </div>
+                    <button class="solution-btn" id="show-btn-${q.id}" onclick="showSolution(${q.id})">সমাধান দেখো</button>
+                    <div class="solution-box" id="solution-${q.id}" onclick="hideSolution(event, ${q.id})">${q.answer}</div>
+                </div>
+            `;
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            const startIndex = currentPage * questionsPerPage;
+            const endIndex = startIndex + questionsPerPage;
+            const questionsToShow = allQuestions.slice(startIndex, endIndex);
+            
+            // নতুন প্রশ্নগুলি যোগ করি
+            const newCards = questionsToShow.map(createCard).join('');
+            
+            // যদি প্রথম পেজ হয় তাহলে রিপ্লেস করি, অন্যথায় যোগ করি
+            if (currentPage === 0) {
+                container.innerHTML = newCards;
+            } else {
+                container.innerHTML += newCards;
+            }
+            
+            // লোড বাটন দেখাব কি লুকাব তা ঠিক করি
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (endIndex >= allQuestions.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        function showSolution(id) {
+            document.getElementById(`show-btn-${id}`).style.display = 'none';
+            document.getElementById(`solution-${id}`).classList.add('active');
+        }
+
+        function hideSolution(event, id) {
+            // টেক্সট সিলেক্ট করলে hide হবে না
+            if (window.getSelection().toString()) return;
+            document.getElementById(`solution-${id}`).classList.remove('active');
+            document.getElementById(`show-btn-${id}`).style.display = 'block';
+        }
+
+        function loadMoreQuestions() {
+            currentPage++;
+            renderQuestions();
+        }
+
+        // প্রথমবার পেজ লোড হওয়ার সময় প্রথম ২৫টি প্রশ্ন দেখাই
+        renderQuestions();
+
+        // লোড বাটনে ক্লিক হ্যান্ডলার যোগ করি
+        document.getElementById('load-more-btn').addEventListener('click', loadMoreQuestions);
+
+        // window functions for inline onclick
+        window.showSolution = showSolution;
+        window.hideSolution = hideSolution;
+    </script>
+</body>
+</html>
+
