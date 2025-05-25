@@ -52,6 +52,36 @@ const data = {
        printf("%.2f",V);
 }`
         },
+        {
+            id: 4,
+            category: "Type 1",
+            title: "4. আয়তক্ষেত্রের ক্ষেত্রফল  নির্ণয় ",
+            flowchart: "../Pho/reqtangle.jpg", 
+            algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input x,y গ্রহণ করি ।\n3. A = x*y হিসাব করি ।\n4. Output A প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
+            code: `#include&ltstdio.h&gt
+    main(){
+       int x,y;
+       scanf("%d",&x);
+       scanf("%d",&y);
+        A = x*y; 
+       printf("%d",A);
+}`
+        },
+        {
+            id: 5,
+            category: "Type 1",
+            title: "5. বৃত্তের ক্ষেত্রফল  নির্ণয় ",
+            flowchart: "../Pho/brittw.jpg", 
+            algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input r গ্রহণ করি ।\n3. A = πr<sup>2</sup> হিসাব করি ।\n4. Output A প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
+            code: `#include&ltstdio.h&gt
+#define pi 3.1416
+    main(){
+       float r;
+       scanf("%f",&r);
+        A = pi*r*r; 
+       printf("%f",A);
+}`
+        },
 
     ]
 };
