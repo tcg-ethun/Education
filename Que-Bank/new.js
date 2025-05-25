@@ -130,7 +130,7 @@ function renderProblems() {
         : data.problems.filter(p => p.category === selectedCategory);
 
     if(filtered.length === 0) {
-        problemsList.innerHTML = `<p style="text-align:center; color:#555;">Nothing Found</p>`;
+        problemsList.innerHTML = `<p style="text-align:center; color:#555;">This Type is Updating....</p>`;
         return;
     }
 
