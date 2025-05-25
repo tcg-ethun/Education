@@ -393,6 +393,7 @@ font-size: 13px;
   overflow-y: hidden;
 }
 
+
 .content-box-xm{
   width: 100%;
   column-gap: 20px;
@@ -419,6 +420,22 @@ justify-content: center;
 align-items: center;
 gap: 3px;
 width: 150px;
+border-radius: 10px;
+height: 6.2rem;
+background-color: rgb(255, 255, 255);
+box-shadow: 0px 05px 15px rgb(222, 220, 220) ;
+font-family: ip;
+flex-direction: column;
+transition-duration: .4s;
+}
+
+
+#lop2{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 3px;
+width: 270px;
 border-radius: 10px;
 height: 6.2rem;
 background-color: rgb(255, 255, 255);
