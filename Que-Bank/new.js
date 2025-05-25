@@ -9,7 +9,7 @@ const data = {
         {
             id: 1,
             category: "Type 1",
-            title: "দুটি সংখ্যা যোগফল নির্ণয় ",
+            title: "1. দুটি সংখ্যা যোগফল নির্ণয় ",
             flowchart: "../Pho/sum.jpg", 
             algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input a,b গ্রহণ করি ।\n3. sum = a+ b হিসাব করি ।\n4. Output sum প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
             code: `#include&ltstdio.h&gt
@@ -22,9 +22,9 @@ const data = {
 }`
         },
         {
-            id: 1,
+            id: 2,
             category: "Type 1",
-            title: "তিনটি সংখ্যার গড়  নির্ণয় ",
+            title: "2. তিনটি সংখ্যার গড়  নির্ণয় ",
             flowchart: "../Pho/avarage.jpg", 
             algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input x,y,z গ্রহণ করি ।\n3. F = (x+y+z)/3 হিসাব করি ।\n4. Output F প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
             code: `#include&ltstdio.h&gt
@@ -35,6 +35,21 @@ const data = {
        scanf("%f",&z);
         F= (x+y+z)/3;
        printf("%.2f",F);
+}`
+        },
+        {
+            id: 3,
+            category: "Type 1",
+            title: "3. গোলকের ক্ষেত্রফল  নির্ণয় ",
+            flowchart: "../Pho/golok.jpg", 
+            algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input r গ্রহণ করি ।\n3. V = 4πr<sup>2</sup> হিসাব করি ।\n4. Output V প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
+            code: `#include&ltstdio.h&gt
+#define pi 3.1416
+    main(){
+       float r;
+       scanf("%f",&r);
+        V= 4*pi*r*r; 
+       printf("%.2f",V);
 }`
         },
 

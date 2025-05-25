@@ -10,7 +10,7 @@
     src: url(../font/HindSiliguri-Regular.ttf);
 }
 body {
-    background: #f0f4f8;
+    background: #f4f5f6;
     color: #222;
     line-height: 1.6;
     min-height: 100vh;
@@ -130,8 +130,11 @@ h3{
 
 
 .problem-title {
-    font-size: 20px;
+    font-size: 16px;
     width: 90%;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #e0e7ff;
     margin-left: -5%;
     font-weight: 700;
     color: #2563eb;
@@ -169,8 +172,8 @@ h3{
 .code-block {
     background: #1e293b;
     color: #f8fafc;
-    font-size: .9rem;        
-    line-height: 1.2;   
+    font-size: 1rem;        
+    line-height: 1.4;   
     padding: 1.5rem 2rem; 
     border-radius: 10px;
     overflow-x: none;
