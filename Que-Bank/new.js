@@ -46,7 +46,7 @@ const data = {
             code: `#include&ltstdio.h&gt
 #define pi 3.1416
     main(){
-       float r;
+       float r,V;
        scanf("%f",&r);
         V= 4*pi*r*r; 
        printf("%.2f",V);
@@ -60,7 +60,7 @@ const data = {
             algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input x,y গ্রহণ করি ।\n3. A = x*y হিসাব করি ।\n4. Output A প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
             code: `#include&ltstdio.h&gt
     main(){
-       int x,y;
+       int x,y,A;
        scanf("%d",&x);
        scanf("%d",&y);
         A = x*y; 
@@ -76,9 +76,24 @@ const data = {
             code: `#include&ltstdio.h&gt
 #define pi 3.1416
     main(){
-       float r;
+       float r,A;
        scanf("%f",&r);
         A = pi*r*r; 
+       printf("%f",A);
+}`
+        },
+        {
+            id: 6,
+            category: "Type 1",
+            title: "6. ত্রিভুজের ক্ষেত্রফল  নির্ণয় ",
+            flowchart: "../Pho/Trivuj.jpg", 
+            algorithm: `1. প্রোগ্রাম শুরু করি ।\n2. Input b,h গ্রহণ করি ।\n3. A = 0.5*b*h হিসাব করি ।\n4. Output A প্রিন্ট করি। \n5.প্রোগ্রাম শেষ করি ।`,
+            code: `#include&ltstdio.h&gt
+    main(){
+       float b,h,A;
+       scanf("%f",&b);
+       scanf("%f",&h);
+        A = 0.5*b*h; 
        printf("%f",A);
 }`
         },
