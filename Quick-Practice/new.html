@@ -296,6 +296,15 @@ h3{
     justify-content: center;
     align-items: center;
 }
+p{
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  color: rgb(3, 3, 107);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
   </style>
 </head>
 <body>
@@ -637,9 +646,9 @@ h3{
       }
 
       const total = examQuestions.length;
-      let resultText = `মোট নম্বর: ${totalScore.toFixed(2)} / ${total}`;
+      let resultText = `<p>Final Result</p> <font color="black" > মোট নম্বর: ${totalScore.toFixed(2)} / ${total}</font> `;
       if (negativeMarking) {
-        resultText += ` (সঠিক: ${correct}, ভুল: ${wrong}, নেগেটিভ: -${(wrong * negativeMarkValue).toFixed(2)})`;
+        resultText += ` <br>সঠিক : ${correct}<br> <font color="red"> ভুল : ${wrong} <br> নেগেটিভ : -${(wrong * negativeMarkValue).toFixed(2)}</font>`;
       }
       
       document.getElementById("resultSummary").innerHTML = resultText;
