@@ -91,7 +91,7 @@
 
     // নেগেটিভ মার্কিং ভেরিয়েবল
     let negativeMarking = false; // ডিফল্ট বন্ধ
-    const negativeMarkValue = 0.5; // প্রতি ভুল উত্তরে -০.৫
+    const negativeMarkValue = 0.25; // প্রতি ভুল উত্তরে -0.25
 
     // Helper: shuffle
     function shuffle(arr) {
