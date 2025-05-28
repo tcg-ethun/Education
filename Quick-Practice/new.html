@@ -18,12 +18,14 @@
     }
 body {
   margin: 0;
+   background-color: rgb(242, 250, 254);
   color: #333;
+
 }
 .container {
   max-width: 480px;
   margin: 20px auto;
-  background: #fff;
+    background-color: rgb(242, 250, 254);
   border-radius: 16px;
   padding: 24px 20px 30px 20px;
   box-shadow: 0 4px 20px rgb(0 0 0 / 0.1);
@@ -84,9 +86,11 @@ label {
 }
 
 #goddo , #poddo{
-    width: 90%;
-    background-color: rgb(243, 243, 243);
-    padding: 7px;
+    margin-left: 5%;
+    width: 80%;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 5px 15px rgb(227, 227, 227);
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -140,8 +144,12 @@ input[type="number"]:focus {
   color: #fff;
 }
 .exam-question {
-  margin-top: 18px;
+  margin-top: 30px;
   font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   font-weight: 600;
   color: #222;
 }
@@ -149,7 +157,7 @@ input[type="number"]:focus {
   margin-top: 12px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 .option-btn {
   background: #f0f4f8;
@@ -229,9 +237,9 @@ input[type="number"]:focus {
     justify-content: center;
     align-items: center;
     padding: 7px;
+    margin-top: 20px;
     border: none;
-    background-color: rgb(21, 207, 21);
-    color: whitesmoke;
+    background-color: rgb(231, 233, 231);
     border-radius: 5px;
 }
 #negMarkInfo{
@@ -247,9 +255,25 @@ input[type="number"]:focus {
     border-radius: 50px;
     width: 40px;
     height: 40px;
-    background-color: white;
+    background-color: rgb(242, 250, 254);
     margin-top: 10px;
     margin-left: 10px;
+}
+#allQuestions{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 5%;
+}
+
+#timerDisplay{
+    color: rgb(3, 113, 191);
+    display: flex;
+    width: 100%;
+    margin-top: -20px;
+    justify-content: center;
+    align-items: center;
 }
 @media (max-width: 600px) {
   .container {
@@ -264,6 +288,14 @@ input[type="number"]:focus {
     gap: 15px;
   }
 }
+
+h3{
+    width: 100%;
+    display: flex;
+    margin-top: -20px;
+    justify-content: center;
+    align-items: center;
+}
   </style>
 </head>
 <body>
@@ -276,9 +308,9 @@ input[type="number"]:focus {
     <div id="goddo">
       <label><input type="checkbox" id="chk_godyo" onchange="toggleParent('godyo')"> গদ্য</label>
       <div id="godyoSubtopics" style="margin-left:20px;">
-        <label><input type="checkbox" data-parent="godyo" id="godyo1"> অপরিচিতা </label> &nbsp; <small>(50)</small>  <br />
-        <label><input type="checkbox" data-parent="godyo" id="godyo2"> বিলাসী </label> <br>
-        <label><input type="checkbox" data-parent="godyo" id="godyo3">আমার পথ  </label> <br>
+        <label><input type="checkbox" data-parent="godyo" id="অপরিচিতা"> অপরিচিতা </label>  <small>( 10 )</small>  <br />
+        <label><input type="checkbox" data-parent="godyo" id="বিলাসী"> বিলাসী </label> <br>
+        <label><input type="checkbox" data-parent="godyo" id="আমার_পথ">আমার পথ  </label> <br>
         <label><input type="checkbox" data-parent="godyo" id="godyo4"> মানব কল্যাণ </label> <br>
         <label><input type="checkbox" data-parent="godyo" id="godyo5">  মাসি-পিসি </label> <br>
         <label><input type="checkbox" data-parent="godyo" id="godyo6">বায়ান্নর দিনগুলি  </label> <br>
@@ -311,15 +343,16 @@ input[type="number"]:focus {
 </div>
 
     <div style="margin-top:10px;">
-      <label>Question Amount  : <input type="number" id="quesCount" min="1" max="100" value="5" /></label>
+      <label>Question Amount  : <input type="number" id="quesCount" min="1" max="100" value="10" /></label>
     </div>
     <br>
-    <!-- <button onclick="startExam()" id="start">Still Updating...</button> -->
-    <button onclick="" id="start">Still Updating...</button>
+    <button onclick="startExam()" id="start">Start Test</button>
   </div>
 
   <!-- Exam Page -->
+  
   <div class="container" id="examPage" style="display:none;">
+     <h3>Quick Test Bangla 1st </h3>
     <div class="exam-progress" id="timerDisplay">Time Remaining : 00:00</div>
     <div id="allQuestions"></div>
     <div class="exam-footer">
@@ -330,139 +363,88 @@ input[type="number"]:focus {
   </div>
 
 <script>
-    // প্রশ্ন ব্যাংক (ডেমো)
     const questionBank = {
-      godyo1: [
-        { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-        { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-        { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-        { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-        { category: "সাহিত্যে খেলা", 
-        q: "সাহিত্যে খেলা কোন ধরনের খেলা?", 
-        options: ["কুইজ", "লুডো", "ক্রিকেট", "ফুটবল"], ans: 0 }
-      ],
-   
-      podyo1: [
-   { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
+     অপরিচিতা: [
+        {
+         q: "কোন বাতাসে অনুপমের শরীর মন কাঁপতে লাগল?", 
+         options: ["গ্রীষ্মের", "বর্ষার", " শীতের", "বসন্তের"], 
+         ans:3,
+    },
+    {
+     q: "আসর জমাইতে অদ্বিতীয় কে?  ",
+        options:[" অনুপম " , " বিনু দাদা", "হরিশ  "," কল্যাণী "],
+        ans: 2,
+    },
+    {
+        q:  " রেল ভ্রমণকালে দেখা মেয়েটির সুধাকণ্ঠকে অনুপম কীসের সাথে তুলনা করেছিল? ",
+        options:[" জীয়ন কাঠি " , "সোনার কাঠি  ", "রূপার কাঠি  "," হীরার কাঠি"],
+        ans: 1,
+    },
+    {
+        q:  " বিনুদাদা ‘চমৎকার'-এর স্থলে কী বলেন? ",
+        options:[" চলনসই" , " অসাধারণ ", " বিস্ময়কর "," সাদামাটা "],
+        ans: 0,
+    },
+    {
+        q:  "  অপরিচিতা গল্পের কন্যার পিতার নাম কী? ",
+        options:["বিশ্বনাথ ঘোষ " , " শম্ভুনাথ সেন ", "আদ্যিনাথ বৈদ্য ","বিশ্বম্ভর দাস "],
+        ans: 1,
+    },
 
+{
+        q:  "  ‘বাপের এক মেয়ে যে বড়ো আদরের মেয়ে' এখানে কার কথা বোঝানো হয়েছে? ",
+        options:[" আসমা " , " মাতিলদা ", " কল্যাণী "," আহ্লাদি "],
+        ans: 2,
+    },
+
+
+    // {
+    //     q:  "  ",
+    //     options:[" " , " ", " "," "],
+    //     ans: 0,
+    // },
+
+    // {
+    //     q:  "  ",
+    //     options:[" " , " ", " "," "],
+    //     ans: 0,
+    // },
+
+    // {
+    //     q:  "  ",
+    //     options:[" " , " ", " "," "],
+    //     ans: 0,
+    // },
+
+    // {
+    //     q:  "  ",
+    //     options:[" " , " ", " "," "],
+    //     ans: 0,
+    // },
+
+    
       ],
-      podyo2: [
-      { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-            { category: "সাহিত্যে খেলা",
-         q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
-         options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
-         ans: 2 },
-      ]
+
+
+
+
+    //  বিলাসী : [
+    //     {
+    //      q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
+    //      options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
+    //      ans:2,
+    // },
+    //   ],
+
+
+    //  আমার_পথ: [
+    //     {
+    //      q: "সাহিত্যে খেলা বলতে কী বোঝায়?", 
+    //      options: ["গল্প", "নাটক", "সাহিত্য বিষয়ক প্রশ্ন", "কবিতা"], 
+    //      ans:2,
+    // },
+    //   ],
+   
     };
 
     // ভেরিয়েবল
@@ -560,7 +542,7 @@ input[type="number"]:focus {
         updateTimerDisplay();
         if (timeLeft <= 0) {
           clearInterval(timerInterval);
-          alert("সময় শেষ! পরীক্ষাটি সাবমিট করা হচ্ছে।");
+          alert("Time Out !");
           viewResult();
         }
       }, 1000);
@@ -577,7 +559,7 @@ input[type="number"]:focus {
     function updateTimerDisplay() {
       const min = Math.floor(timeLeft / 60).toString().padStart(2, "0");
       const sec = (timeLeft % 60).toString().padStart(2, "0");
-      document.getElementById("timerDisplay").innerText = `বাকি সময়: ${min}:${sec}`;
+      document.getElementById("timerDisplay").innerText = `Time Remaining : ${min}:${sec}`;
     }
 
     // প্রশ্ন রেন্ডার
@@ -587,7 +569,7 @@ input[type="number"]:focus {
       examQuestions.forEach((q, idx) => {
         const div = document.createElement("div");
         div.innerHTML = `
-          <div class="exam-question">${idx + 1}. (${q.category}) ${q.q}</div>
+          <div class="exam-question">${idx + 1}. ${q.q}</div>
           <div class="options-list" id="optionsList${idx}">
             ${q.options.map((opt, i) => `<button class="option-btn" id="opt${idx}_${i}" onclick="selectOption(${idx},${i})">${opt}</button>`).join("")}
           </div>
