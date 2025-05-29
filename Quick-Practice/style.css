@@ -229,10 +229,12 @@ input[type="number"]:focus {
     visibility: visible;
     justify-content: center;
     align-items: center;
-    padding: 7px;
-    margin-top: 20px;
+    color: whitesmoke;
+    padding: 7px;  
+    box-shadow: 0px 05px 15px rgb(225, 224, 224) ;
+    margin-top: 20px; 
     border: none;
-    background-color: rgb(231, 233, 231);
+    background-color: rgb(3, 44, 168);
     border-radius: 5px;
 }
 #negMarkInfo{
