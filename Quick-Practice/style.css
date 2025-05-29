@@ -226,6 +226,7 @@ input[type="number"]:focus {
 #restartBtn{
     width: 70%;
     display: flex;
+    visibility: visible;
     justify-content: center;
     align-items: center;
     padding: 7px;

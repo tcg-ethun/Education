@@ -1,5 +1,7 @@
 
     const questionBank = {
+
+
      অপরিচিতা: [
 {
     q:"অপরিচিতা কোন পুরুষের জবানিতে লেখা ?",
@@ -320,7 +322,7 @@
       document.getElementById("mainPage").style.display = "none";
       document.getElementById("examPage").style.display = "block";
       document.getElementById("viewResultBtn").disabled = false;
-      document.getElementById("restartBtn").style.display = "none";
+      document.getElementById("restartBtn").style.display = "visible";
       document.getElementById("resultSummary").innerHTML = "";
     }
 
@@ -406,9 +408,9 @@
       }
 
       const total = examQuestions.length;
-      let resultText = `<p>Final Result</p> <font color="black" > মোট নম্বর: ${totalScore.toFixed(2)} / ${total}</font> `;
+      let resultText = `<p>Final Result</p> <font color="black" size="3px">মোট প্রাপ্ত নম্বর: ${totalScore.toFixed(2)} / ${total}</font> `;
       if (negativeMarking) {
-        resultText += ` <br>সঠিক : ${correct}<br> <font color="red"> ভুল : ${wrong} <br> নেগেটিভ : -${(wrong * negativeMarkValue).toFixed(2)}</font>`;
+        resultText += ` <br><font color="green" size="3px"> সঠিক : ${correct}<br> <font color="red" size="3px"> ভুল : ${wrong} <br> নেগেটিভ : -${(wrong * negativeMarkValue).toFixed(2)}</font>`;
       }
       
       document.getElementById("resultSummary").innerHTML = resultText;
