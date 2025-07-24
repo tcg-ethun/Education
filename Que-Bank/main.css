@@ -1,86 +1,74 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'eng';
     user-select: none;
 }
-body{
-    background-color:#F6F3EC;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-}
-button{
-    border: none;
-    position: absolute;
-    width: 90%;
-    margin-top: 20px;
-    display: flex;
-    top: 0;
-    z-index: 1000;
-    padding: 10px;
-    background-color: #f6f3ec;
-}
-h2{
-    width: 90%;
-    margin-top: 30px;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    font-family: 'eng';
-    font-size: 17px;
+a{
+    text-decoration: none;
 }
 @font-face {
     font-family: 'eng';
     src: url(../font/Poppins-Regular.ttf);
 }
-.academic{
-    background-color: #ffffff;
+
+header{
+    position: fixed;
+}
+header button{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;
+    font-size: 16px;
+    border: none;
+    background-color: white;
+    border-radius: 50px;
+}
+
+header h2{
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
     width: 90%;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 50px;
-      font-family: 'eng';
-      padding-bottom: 30px;
-    border-radius: 20px;
+
 }
-.academic .tag{
-    width: 90%;
-    top: 0;
+.main .sub{
+    border-radius: 5px;
+    width: 100px;
     display: flex;
-    font-size: 15px;
-    margin-left: 30px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    text-wrap: wrap;
+    flex-wrap: wrap;
+    box-shadow: 0px 0px 15px rgb(230, 229, 229);
+    background-color: rgb(255, 255, 255);
+    height: 100px;
 }
 
-.bangla{
-    border-radius: 10px;
-    width: 130px;
-    background-size: cover;
-    height: 130px;
-    transition-duration: .2s;
-    background-image: url(../Pho/Bangla.jpg);
-}
-.bangla:active{
-    transform: scale(.9);
-}
-
-.ict{
-    border-radius: 10px;
-    width: 130px;
-    background-size: cover;
-    height: 130px;
-    transition-duration: .2s;
-    background-image: url(../Pho/ICT.jpg);
-}
-.ict:active{
-    transform: scale(.9);
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 22px;
+    position: absolute;
+    margin-top: 150px;
+    width: 100%;
 }
