@@ -7,7 +7,7 @@ user-select: none;
 }
 @font-face {
     font-family: 'bangla';
-    src: url(font/HindSiliguri-Regular.ttf);
+    src: url(../font/HindSiliguri-Regular.ttf);
 }
 body {
     background-color: #fff;
