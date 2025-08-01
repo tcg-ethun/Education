@@ -40,11 +40,10 @@ padding-bottom: 10px;
 
     .container {
       background: white;
-      width: 600px;
       display: flex;
       flex-direction: column;
       gap: 18px;
-      padding: 25px 30px;
+      /* padding: 25px 20px; */
       box-sizing: border-box;
       color: #222;
     }
@@ -104,12 +103,13 @@ padding-bottom: 10px;
       border-radius: 6px;
       color: #555;
       border: 2px solid #e4e4e4;
-      flex: 0 0 55%;
       min-height: 48px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: pointer;
       user-select: none;
       position: relative;
       transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
