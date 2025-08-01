@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable="no">
+    <title>Education</title>
+         <link rel="stylesheet" href="styles.css">
+         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=forum" />
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
+         <link rel="shortcut icon" href="Photo/fav.png" type="image/x-icon">
+        </head>
+  <body>
+
+
+<div class="head">
+    <img src="Photo/Edu.png" width="130" alt="" onclick="window.location.href='index.html'">
+    <div class="noti" onclick="window.location.href='notification.html'"><i class="fa-regular fa-bell fa-lg"></i><div class="dot"></div></div>
+</div>
+  
+  <div class="content-box">
+    <div  class="animate__animated animate__fadeIn" id="lop" onclick="window.location.href='Que-Bank/main.html'">  <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38" fill="none" viewBox="0 0 24 24"><path fill="#ffbc44" d="M22.5 8v12a1 1 0 0 1-1 1h-19a1 1 0 0 1-1-1V8"></path><path fill="#c77f67" d="M22.5 8h-21v2.5h21V8Z"></path><path fill="#ffbc44" d="M23.5 7a1 1 0 0 1-1 1h-21a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h21a1 1 0 0 1 1 1v3Z"></path><path fill="#c77f67" d="M15.5 12.5A1.5 1.5 0 0 1 14 14h-4a1.5 1.5 0 1 1 0-3h4a1.5 1.5 0 0 1 1.5 1.5Z"></path><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.5 8v12a1 1 0 0 1-1 1h-19a1 1 0 0 1-1-1V8"></path><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M23.5 7a1 1 0 0 1-1 1h-21a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h21a1 1 0 0 1 1 1v3Z"></path><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M15.5 12.5A1.5 1.5 0 0 1 14 14h-4a1.5 1.5 0 1 1 0-3h4a1.5 1.5 0 0 1 1.5 1.5v0Z"></path></svg>   প্রশ্ন ব্যাংক </div>
+    <div  class="animate__animated animate__fadeIn" id="lop" onclick="window.location.href='GK/Gk-CATEGORY.html'"><img src="Photo/knowledge.png" width="40" alt=""> সাধারণ জ্ঞান </div>
+    <div  class="animate__animated animate__fadeIn" id="lop" onclick="window.location.href='English-Grammar/Main.html'"><img src="Photo/dictionary.png" width="40" alt="">Grammar</div>
+    <div  class="animate__animated animate__fadeIn" id="lop" onclick="window.location.href='Vocabulary.html'"><img src="Photo/written-paper.png" width="40" alt="">Vocabulary</div>
+</div>
+
+<h4 id="know">জেনে রাখো - </h4>
+    <div class="quiz-container-index">
+      <div id="question" class="question">Question Text</div>
+      <ul id="options" class="options"></ul>
+      <div class="bottom-btn">
+      <button id="nextBtn" onclick="nextQuestion()">নতুন প্রশ্ন &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+  </div>
+    <br>
+
+    <div class="bottom"> 
+         <div class="toggle" onclick="window.location.href='index.html'"> <svg width="25px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.44661 15.3975C9.11385 15.1508 8.64413 15.2206 8.39748 15.5534C8.15082 15.8862 8.22062 16.3559 8.55339 16.6025C9.5258 17.3233 10.715 17.75 12 17.75C13.285 17.75 14.4742 17.3233 15.4466 16.6025C15.7794 16.3559 15.8492 15.8862 15.6025 15.5534C15.3559 15.2206 14.8862 15.1508 14.5534 15.3975C13.825 15.9373 12.9459 16.25 12 16.25C11.0541 16.25 10.175 15.9373 9.44661 15.3975Z" fill="silver"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.25C11.2919 1.25 10.6485 1.45282 9.95055 1.79224C9.27585 2.12035 8.49642 2.60409 7.52286 3.20832L5.45628 4.4909C4.53509 5.06261 3.79744 5.5204 3.2289 5.95581C2.64015 6.40669 2.18795 6.86589 1.86131 7.46263C1.53535 8.05812 1.38857 8.69174 1.31819 9.4407C1.24999 10.1665 1.24999 11.0541 1.25 12.1672V13.7799C1.24999 15.6837 1.24998 17.1866 1.4027 18.3616C1.55937 19.567 1.88856 20.5401 2.63236 21.3094C3.37958 22.0824 4.33046 22.4277 5.50761 22.5914C6.64849 22.75 8.10556 22.75 9.94185 22.75H14.0581C15.8944 22.75 17.3515 22.75 18.4924 22.5914C19.6695 22.4277 20.6204 22.0824 21.3676 21.3094C22.1114 20.5401 22.4406 19.567 22.5973 18.3616C22.75 17.1866 22.75 15.6838 22.75 13.7799V12.1672C22.75 11.0541 22.75 10.1665 22.6818 9.4407C22.6114 8.69174 22.4646 8.05812 22.1387 7.46263C21.8121 6.86589 21.3599 6.40669 20.7711 5.95581C20.2026 5.5204 19.4649 5.06262 18.5437 4.49091L16.4771 3.20831C15.5036 2.60409 14.7241 2.12034 14.0494 1.79224C13.3515 1.45282 12.7081 1.25 12 1.25ZM8.27953 4.50412C9.29529 3.87371 10.0095 3.43153 10.6065 3.1412C11.1882 2.85833 11.6002 2.75 12 2.75C12.3998 2.75 12.8118 2.85833 13.3935 3.14119C13.9905 3.43153 14.7047 3.87371 15.7205 4.50412L17.7205 5.74537C18.6813 6.34169 19.3559 6.76135 19.8591 7.1467C20.3487 7.52164 20.6303 7.83106 20.8229 8.18285C21.0162 8.53589 21.129 8.94865 21.1884 9.58104C21.2492 10.2286 21.25 11.0458 21.25 12.2039V13.725C21.25 15.6959 21.2485 17.1012 21.1098 18.1683C20.9736 19.2163 20.717 19.8244 20.2892 20.2669C19.8649 20.7058 19.2871 20.9664 18.2858 21.1057C17.2602 21.2483 15.9075 21.25 14 21.25H10C8.09247 21.25 6.73983 21.2483 5.71422 21.1057C4.71286 20.9664 4.13514 20.7058 3.71079 20.2669C3.28301 19.8244 3.02642 19.2163 2.89019 18.1683C2.75149 17.1012 2.75 15.6959 2.75 13.725V12.2039C2.75 11.0458 2.75076 10.2286 2.81161 9.58104C2.87103 8.94865 2.98385 8.53589 3.17709 8.18285C3.36965 7.83106 3.65133 7.52164 4.14092 7.1467C4.6441 6.76135 5.31869 6.34169 6.27953 5.74537L8.27953 4.50412Z" fill="#737373"/>
+</svg> <br></div>
+         <div class="toggle" onclick="window.location.href='Que-Bank/main.html'">  <svg width="22" height="22" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="elements"><path id="Vector" d="M19.198 1L2.802 1C2.05147 1 1.6762 1 1.41637 1.17726C1.28768 1.26505 1.18133 1.38109 1.10567 1.51627C0.952904 1.78921 0.990244 2.15793 1.06493 2.89537C1.18958 4.12624 1.2519 4.74168 1.57823 5.18168C1.74084 5.40095 1.94701 5.58519 2.18414 5.72315C2.65999 6 3.28635 6 4.53908 6L17.4609 6C18.7136 6 19.34 6 19.8159 5.72315C20.053 5.58519 20.2592 5.40095 20.4218 5.18168C20.7481 4.74168 20.8104 4.12624 20.9351 2.89537C21.0098 2.15793 21.0471 1.78921 20.8943 1.51627C20.8187 1.38109 20.7123 1.26505 20.5836 1.17726C20.3238 1 19.9485 1 19.198 1Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path id="Vector 5338" d="M2 6L2 11.0408C2 14.7928 2 16.6688 3.17157 17.8344C4.34315 19 6.22876 19 10 19H12C15.7712 19 17.6569 19 18.8284 17.8344C20 16.6688 20 14.7928 20 11.0408V6" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path id="Vector 7282" d="M9 9L13 9" stroke="#858585" stroke-width="1.5" stroke-linecap="round"></path></g></svg> </div>
+         <div class="toggle" onclick="alert('Sorry ! Page load fail..')"> <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="Group"><path id="Vector" d="M17.09 12.4402V16.8802C17.0898 17.5085 16.8401 18.1109 16.3959 18.5551C15.9516 18.9993 15.3492 19.249 14.721 19.2492H3.12002C2.80777 19.2491 2.49863 19.1873 2.21035 19.0673C1.92208 18.9473 1.66035 18.7716 1.44021 18.5501C1.22007 18.3287 1.04586 18.0659 0.927584 17.777C0.80931 17.488 0.749306 17.1785 0.751018 16.8662V5.27824C0.74916 4.96649 0.809194 4.65747 0.927639 4.36909C1.04608 4.08071 1.22059 3.81871 1.44103 3.59826C1.66148 3.37781 1.92348 3.20331 2.21186 3.08487C2.50025 2.96642 2.80927 2.90639 3.12102 2.90824H7.56002" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path id="Vector_2" d="M17.09 6.99472L13.005 2.90872M4.83502 13.8027V11.6377C4.83702 11.2807 4.97902 10.9377 5.23002 10.6847L14.762 1.15272C14.8885 1.02483 15.0391 0.923295 15.2051 0.854C15.3711 0.784704 15.5492 0.749023 15.729 0.749023C15.9089 0.749023 16.087 0.784704 16.253 0.854C16.419 0.923295 16.5695 1.02483 16.696 1.15272L18.847 3.30372C18.9749 3.4302 19.0765 3.58079 19.1457 3.74678C19.215 3.91277 19.2507 4.09085 19.2507 4.27072C19.2507 4.45059 19.215 4.62868 19.1457 4.79467C19.0765 4.96065 18.9749 5.11124 18.847 5.23772L9.31502 14.7697C9.06156 15.0214 8.71924 15.1633 8.36202 15.1647H6.19702C6.01809 15.165 5.84086 15.1299 5.6755 15.0616C5.51013 14.9932 5.35988 14.8929 5.23336 14.7664C5.10683 14.6399 5.00652 14.4896 4.93816 14.3242C4.86981 14.1589 4.83476 13.9817 4.83502 13.8027Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg></div>
+         <div class="toggle" onclick="window.location.href='profile.html'">  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="elements"><circle id="Ellipse 1533" cx="11" cy="11" r="10" stroke="#858585" stroke-width="1.5"></circle><path id="Vector" d="M6.5 16C8.8317 13.5578 13.1432 13.4428 15.5 16M13.4951 8.5C13.4951 9.88071 12.3742 11 10.9915 11C9.60885 11 8.48797 9.88071 8.48797 8.5C8.48797 7.11929 9.60885 6 10.9915 6C12.3742 6 13.4951 7.11929 13.4951 8.5Z" stroke="#858585" stroke-width="1.5" stroke-linecap="round"></path></g></svg></div>
+    </div>
+<script src="JS/script.js"></script>
+<script src="JS/service-worker.js"></script>
+<script src="JS/quiz.js" ></script>
+</body>
+</html>
+
+
+
+  
+

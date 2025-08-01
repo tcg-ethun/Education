@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  user-scalable=no">
+    <title>Studet Profile</title>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Eng';
+            user-select: none;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container {
+            width: 95%;
+            max-width: 1000px;
+            margin: 15px auto;
+            padding: 10px;
+        }
+        
+        .profile-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .profile-header {
+            padding: 25px 15px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 5px solid rgba(82, 151, 235, 0.5);
+            object-fit: cover;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        .profile-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            word-wrap: break-word;
+        }
+        
+        .profile-role {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .edit-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .edit-icon:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .profile-content {
+            padding: 20px 15px;
+        }
+        
+        .info-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #3498db;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 8px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            word-wrap: break-word;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding-bottom: 5%;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 5;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+            padding: 0 10px;
+            line-height: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            -webkit-appearance: none;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+            -webkit-appearance: none;
+        }
+        
+        .btn-primary {
+            background-color: #a2f399;
+        }
+        
+    
+        
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f2f5;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .file-label:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .profile-img-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px;
+        }
+        
+        .profile-img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .profile-img-container:hover .profile-img-overlay {
+            opacity: 1;
+        }
+        
+        .profile-img-overlay-text {
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            
+            .container {
+                width: 100%;
+                padding: 5px;
+                margin: 0;
+            }
+            
+            .profile-card {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .profile-header {
+                padding: 20px 10px;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .profile-img-container {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .profile-name {
+                font-size: 18px;
+            }
+            
+            .profile-role {
+                font-size: 12px;
+            }
+            
+            .profile-content {
+                padding: 15px 10px;
+            }
+            
+            .section-title {
+                font-size: 16px;
+            }
+            
+            .info-item {
+                padding: 8px;
+                margin-bottom: 10px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 15px;
+                margin: 10px auto;
+            }
+            
+            .form-input, .btn {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .modal-title {
+                padding: 5px;
+                border: none;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: -20px;
+                font-size: 14px;
+                background-color: white;
+                width: 90%;
+            }
+            
+            .edit-icon {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
+        @media (hover: none) {
+            .profile-img-overlay {
+                opacity: 1;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            
+            .edit-icon:active {
+                background-color: rgba(255, 255, 255, 0.4);
+            }
+            
+            .btn-primary:active {
+                background-color: #2980b9;
+            }
+        }
+        
+        /* ল্যান্ডস্কেপ মোডের জন্য স্টাইল */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .modal-content {
+                max-height: 80vh;
+            }
+            
+            .profile-img, .profile-img-container {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .profile-header {
+                padding: 15px 10px;
+            }
+        }
+        @font-face {
+            font-family: 'Eng';
+            src: url(font/Poppins-Regular.ttf);
+        }
+        #button{
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            margin-top: 20px;
+            background-color: white;
+            margin-left: 20px;
+            border-radius: 50px;
+            z-index: 1000;
+            position: absolute;
+        }
+        #edit{
+            margin-top: 10px;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.location.href='index.html'" id="button"><i class="fa-solid fa-arrow-left fa-lg"></i></button>
+
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-img-container">
+                    <img id="profileImage" src="Photo/Profile.jpg" alt="Profile Picture" class="profile-img">
+                </div>
+                <h1 id="profileName" class="profile-name">Your Name</h1>
+                <div class="edit-icon" onclick="openEditModal()">
+                  <i class="fa-solid fa-pen-to-square fa-xl" id="edit"></i>
+                </div>
+            </div>
+            <div class="profile-content">
+                <div class="info-section">
+                    <h2 class="section-title">Personal Details : </h2>
+                    <div class="info-item">
+                        <div class="info-label">Email :</div>
+                        <div id="profileEmail" class="info-value">user@gmail.com</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Phone :</div>
+                        <div id="profilePhone" class="info-value">+880 1XXX-XXXXXX</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Address :</div>
+                        <div id="profileAddress" class="info-value">Dhaka , Bangladesh</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Institution Name :</div>
+                        <div id="profileSchool" class="info-value">Bangladesh Noubahini College , Kaptai .</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Update Your Personal Details</h2>
+                <button class="close-btn" onclick="closeEditModal()">&times;</button>
+            </div>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label class="form-label">Profile Picture</label>
+                    <div style="text-align: center;">
+                        <img id="previewImage" src="Photo/Profile.jpg" alt="Profile Pic" class="profile-img" style="width: 100px; height: 100px;">
+                        <br>
+                        <label for="profileImageInput" class="file-label">Change Profile </label>
+                        <input type="file" id="profileImageInput" class="file-input" accept="image/*">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nameInput" class="form-label">Full Name </label>
+                    <input type="text" id="nameInput" class="form-input" placeholder="Enter Your Name ">
+                </div>
+                <div class="form-group">
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email" id="emailInput" class="form-input" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="phoneInput" class="form-label">Phone</label>
+                    <input type="tel" id="phoneInput" class="form-input" placeholder="Enter Your Phone">
+                </div>
+                <div class="form-group">
+                    <label for="addressInput" class="form-label">Address</label>
+                    <input type="text" id="addressInput" class="form-input" placeholder="Enter Your Current Address">
+                </div>
+                <div class="form-group">
+                    <label for="schoolInput" class="form-label">Institution Name </label>
+                    <input type="text" id="schoolInput" class="form-input" placeholder="Enter Your College Name ">
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        // Device fingerprinting function to create a unique identifier
+        function generateDeviceFingerprint() {
+            const userAgent = navigator.userAgent;
+            const screenWidth = window.screen.width;
+            const screenHeight = window.screen.height;
+            const colorDepth = window.screen.colorDepth;
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const language = navigator.language;
+            const platform = navigator.platform;
+            const pixelRatio = window.devicePixelRatio || 1;
+            
+            // Create a string from all the collected data
+            const rawFingerprint = `${userAgent}|${screenWidth}x${screenHeight}|${colorDepth}|${timezone}|${language}|${platform}|${pixelRatio}`;
+            
+            // Simple hash function
+            let hash = 0;
+            for (let i = 0; i < rawFingerprint.length; i++) {
+                const char = rawFingerprint.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash; // Convert to 32bit integer
+            }
+            
+            return 'device_' + Math.abs(hash).toString(16);
+        }
+        
+        // Get device fingerprint
+        const deviceId = generateDeviceFingerprint();
+        
+        // Load profile data from localStorage when page loads
+        document.addEventListener('DOMContentLoaded', loadProfileData);
+        
+        // Handle form submission
+        document.getElementById('editProfileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveProfileData();
+            closeEditModal();
+        });
+        
+        // Handle image upload preview
+        document.getElementById('profileImageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('previewImage').src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Open edit modal and populate with current data
+        function openEditModal() {
+            const modal = document.getElementById('editModal');
+            
+            // Populate form with current values
+            document.getElementById('nameInput').value = document.getElementById('profileName').textContent;
+            document.getElementById('emailInput').value = document.getElementById('profileEmail').textContent;
+            document.getElementById('phoneInput').value = document.getElementById('profilePhone').textContent;
+            document.getElementById('addressInput').value = document.getElementById('profileAddress').textContent;
+            document.getElementById('schoolInput').value = document.getElementById('profileSchool').textContent;
+            document.getElementById('previewImage').src = document.getElementById('profileImage').src;
+            
+            modal.style.display = 'flex';
+            
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close edit modal
+        function closeEditModal() {
+            document.getElementById('editModal').style.display = 'none';
+            
+            // স্ক্রল করা আবার চালু করুন
+            document.body.style.overflow = '';
+        }
+        
+        // Save profile data to localStorage
+        function saveProfileData() {
+            const profileData = {
+                name: document.getElementById('nameInput').value,
+                email: document.getElementById('emailInput').value,
+                phone: document.getElementById('phoneInput').value,
+                address: document.getElementById('addressInput').value,
+                school: document.getElementById('schoolInput').value,
+                image: document.getElementById('previewImage').src,
+                lastUpdated: new Date().toISOString()
+            };
+            
+            try {
+                // Save to localStorage with device fingerprint as part of the key
+                localStorage.setItem(`adminProfile_${deviceId}`, JSON.stringify(profileData));
+                
+                // Update the UI
+                updateProfileUI(profileData);
+                
+                // সফল সংরক্ষণের জন্য সতর্কতা
+                alert('Profile Successfully Updated !');
+            } catch (error) {
+                console.error('Error saving profile data:', error);
+                alert('Something wrong ! Please Try Again .');
+            }
+        }
+        
+        // Load profile data from localStorage
+        function loadProfileData() {
+            try {
+                const savedData = localStorage.getItem(`adminProfile_${deviceId}`);
+                
+                if (savedData) {
+                    const profileData = JSON.parse(savedData);
+                    updateProfileUI(profileData);
+                    console.log('Profile data loaded successfully');
+                } else {
+                    console.log('No saved profile data found');
+                }
+            } catch (error) {
+                console.error('Error loading profile data:', error);
+            }
+            
+            // প্রোফাইল ছবিতে ক্লিক করলে মোডাল খুলুন
+            document.getElementById('profileImage').addEventListener('click', openEditModal);
+        }
+        
+        // Update profile UI with data
+        function updateProfileUI(data) {
+            document.getElementById('profileName').textContent = data.name || 'Your Name';
+            document.getElementById('profileEmail').textContent = data.email || 'user@gmail.com';
+            document.getElementById('profilePhone').textContent = data.phone || '+8801XXX-XXXXXX';
+            document.getElementById('profileAddress').textContent = data.address || 'Dhaka , Bangladesh';
+            document.getElementById('profileSchool').textContent = data.school || 'Bangladesh Nouhabini College , Kaptai';
+            document.getElementById('profileImage').src = data.image || 'Photo/Profile.jpg';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('editModal');
+            if (event.target === modal) {
+                closeEditModal();
+            }
+        };
+        
+        // মোবাইল ডিভাইসে ফোকাস সমস্যা সমাধান
+        const formInputs = document.querySelectorAll('.form-input');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                // মোবাইলে ইনপুট ফোকাস করার সময় স্ক্রল করা সম্ভব করুন
+                setTimeout(() => {
+                    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            });
+        });
+        
+        // ইমেজ কম্প্রেশন ফাংশন যোগ করুন
+        function compressImage(imageDataUrl, maxWidth, quality) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = imageDataUrl;
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+                    
+                    // আকার ঠিক করুন
+                    if (width > maxWidth) {
+                        height = (height * maxWidth) / width;
+                        width = maxWidth;
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    // কম্প্রেস করুন
+                    const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+                    resolve(compressedDataUrl);
+                };
+            });
+        }
+        
+        // ইমেজ আপলোড হ্যান্ডলার আপডেট করুন
+        document.getElementById('profileImageInput').addEventListener('change', async function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = async function(event) {
+                    // ইমেজ কম্প্রেস করুন
+                    const compressedImage = await compressImage(event.target.result, 500, 0.7);
+                    document.getElementById('previewImage').src = compressedImage;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

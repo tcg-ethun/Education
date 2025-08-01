@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'eng';
+    user-select: none;
+}
+a{
+    text-decoration: none;
+}
+@font-face {
+    font-family: 'eng';
+    src: url(../font/Poppins-Regular.ttf);
+}
+
+header{
+    position: fixed;
+}
+header button{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;
+    font-size: 16px;
+    border: none;
+    background-color: white;
+    border-radius: 50px;
+}
+
+header h2{
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    width: 90%;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+}
+.main .sub{
+    border-radius: 5px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-wrap: wrap;
+    flex-wrap: wrap;
+    box-shadow: 0px 0px 15px rgb(230, 229, 229);
+    background-color: rgb(255, 255, 255);
+    height: 100px;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 22px;
+    position: absolute;
+    margin-top: 150px;
+    width: 100%;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable='no"/>
+  <title>Word Game</title>
+  <link rel="stylesheet" href="style/voca.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  
+</head>
+
+<body>
+  <button id="button" onclick="window.location.href='index.html'"> <i class="fa-solid fa-arrow-left fa-lg"></i></button>
+  <div class="container" id="quiz-container">
+    <h2>Word Quiz</h2>
+    <div id="pairs-container"></div>
+    <div id="english-words-container"></div>
+    <div id="round-result"></div>
+    <button id="reset-button" onclick="resetQuiz()">নতুন শব্দ</button>
+  </div>
+
+  <div id="solution-container">
+    <h3>কুইজের ফলাফল</h3>
+    <ul class="solution-list"></ul>
+  </div>
+
+</body>
+<script src="vocabulary.js"></script>
+</html>

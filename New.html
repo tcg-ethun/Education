@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable="no">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="new.css">
+    
+</head>
+<body>
+    <button id="back" onclick="window.history.back()"><i class="fa-solid fa-arrow-left fa-xl" style="color: #000000;"></i></button>
+    <div class="container" id="setup-container">
+        <h2>প্রশ্নের সংখ্যা নির্বাচন করুন</h2>
+        <div class="range-container">
+            <label for="question-range">Questions:</label>
+            <input type="range" id="question-range" min="5" max="50" value="10">
+            <span id="questions-count">10</span>
+        </div>
+        <button id="start-quiz-btn">কুইজ শুরু করুন</button>
+    </div>
+
+    <div class="container hidden" id="quiz-container">
+        <h1>সাধারণ জ্ঞান ( মিশ্রিত )</h1>
+        <div id="question-indicator"></div>
+        <div id="question-text"></div>
+        <div id="options-container"></div>
+        <div class="navigation">
+            <button id="prev-btn">পূর্ববর্তী</button>
+            <button id="next-btn">পরবর্তী</button>
+        </div>
+        <div class="actions">
+            <button id="view-results-btn">ফলাফল দেখুন</button>
+            <button id="reset-quiz-btn">রিসেট</button>
+        </div>
+    </div>
+
+    <div class="container-hidden hidden" id="results-container">
+        <h2>ফলাফল</h2>
+        <div id="score"></div>
+        <div id="results-details"></div>
+        <div class="result-actions">
+            <button id="back-to-quiz-btn">কুইজে ফিরে যান</button>
+        </div>
+    </div>
+
+    <script src="JS/new.js"></script>
+</body>
+</html>

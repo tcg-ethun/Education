@@ -1,0 +1,91 @@
+*{
+    font-family: 'bangla';
+}
+  @font-face {
+    font-family: 'bangla';
+    src: url(../font/HindSiliguri-Regular.ttf);
+  }
+  body {
+    background: #f0f2f5;
+    padding: 20px;
+    margin: 0;
+  }
+  #btn{
+    width: 40px;
+    position: fixed;
+    height: 40px;
+    border-radius: 50px;
+       background: #f0f2f5;
+    border: none;
+
+  }
+  h2 {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+  #notifications {
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 1000;
+  }
+  .notification {
+    background-color: white;
+    border-left: 5px solid #7fc1ed; 
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    z-index: 1000;
+    cursor: none;
+    transition: background-color 0.3s, border-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .notification.unread {
+    background-color: #e6f0ff; 
+  }
+  .notification.read {
+    background-color: white; 
+    border-color: #ccc;
+    cursor: default;
+  }
+  .notification.read:hover {
+    background-color: white; 
+  }
+  .notification:hover.unread {
+    background-color: #d0e4ff; 
+  }
+  .title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+  .datetime {
+    font-size: 12px;
+    color: #666;
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      text-align: center;
+    }
+    #notifications {
+      max-width: 100%;
+    }
+    .notification {
+      padding: 18px 15px;
+      font-size: 15px;
+      border-radius: 8px;
+    }
+    .title {
+      font-size: 16px;
+    }
+    .datetime {
+      font-size: 0.85rem;
+    }
+  }
