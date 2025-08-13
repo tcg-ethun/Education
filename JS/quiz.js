@@ -68,26 +68,27 @@ const questions = [
 },
 
 
-//     {
-//     question:  "  ",
-//     options: [" ",      "   ",       "  ",       "  "],
-//     answer:  0,
-//      tag: "DU - C (Bangla)"
-// },
+    {
+    question:  "  'সোনার তরী' কবিতায় 'নৌকার মাঝি' কিসের প্রতীক? ",
+    options: [" সৃষ্টিকর্মের",      "  কবির নিজের ",       " অনন্ত কালস্রোতের ",       " মহাকালের "],
+    answer:  3,
+     tag: "DU - C (Bangla)"
+},
 
-//     {
-//     question:  "  ",
-//     options: [" ",      "   ",       "  ",       "  "],
-//     answer:  0,
-//      tag: "DU - C (Bangla)"
-// },
 
-//     {
-//     question:  "  ",
-//     options: [" ",      "   ",       "  ",       "  "],
-//     answer:  0,
-//      tag: "DU - C (Bangla)"
-// },
+    {
+    question:  " 'গণঅভ্যুত্থান' শব্দটি কীভাবে গঠিত?  ",
+    options: [" সন্ধি", "প্রত্যয় ", " উপসর্গ ", " সমাস "],
+    answer:  3,
+     tag: "DU - C (Bangla)"
+},
+
+    {
+    question:  " কোনটিতে ব-ফলার উচ্চারণ বহাল রয়েছে? ",
+    options: [" বিধ্বস্ত",      " উদ্বেগ  ", " স্বত্ব  ",       " দ্বন্দ্ব "],
+    answer:  1,
+     tag: "DU - C (Bangla)"
+},
 
 
 
