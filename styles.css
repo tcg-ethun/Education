@@ -23,6 +23,58 @@
   transition-duration: .2s;
 }
 
+@font-face {
+  font-family: 'tag';
+  src: url(font/Poppins-Regular.ttf);
+}
+.tag-label {
+    background: linear-gradient(90deg, #318cee, #0056b3);
+    color: white;
+     font-family: 'tag';
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Question */
+.question {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+/* Options */
+.options {
+    padding: 0;
+    margin: 0;
+}
+.options li {
+    list-style: none;
+    padding: 10px;
+    margin: 6px 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+
+/* Bottom Button */
+.bottom-btn {
+    margin-top: 15px;
+}
+
+
 .dot{
   border-radius: 50px;
   margin-top: -13px;
